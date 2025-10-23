@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Meowney</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name" translatable="false">Meowney</string>
+    <string name="title_entries">Entries</string>
+    <string name="title_stats">Stats</string>
+    <string name="title_more">More</string>
 </resources>
