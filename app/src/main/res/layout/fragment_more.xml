@@ -16,8 +16,13 @@
         android:gravity="center_vertical"
         android:textSize="20sp"
         android:padding="16dp"
-        android:background="?attr/colorPrimaryVariant"
+        android:background="?attr/colorPrimary"
         android:textColor="@color/white"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="?attr/colorOnPrimary" />
 
     <LinearLayout
         android:id="@+id/rowLanguage"
@@ -40,6 +45,36 @@
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:text="@string/more_language"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="?attr/colorOnPrimary" />
+
+    <LinearLayout
+        android:id="@+id/rowAbout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageAbout"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_about_black_24dp"
+            app:tint="?attr/iconTint" />
+
+        <TextView
+            android:id="@+id/textAbout"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="@string/more_about"
             android:textSize="16sp"
             android:layout_marginStart="16dp"/>
     </LinearLayout>
