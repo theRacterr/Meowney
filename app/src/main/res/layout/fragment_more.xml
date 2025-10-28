@@ -55,6 +55,61 @@
         android:background="?attr/colorOnPrimary" />
 
     <LinearLayout
+        android:id="@+id/rowColorMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageColorMode"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_moon_black_24dp"
+            app:tint="?attr/iconTint" />
+
+        <TextView
+            android:id="@+id/textColorMode"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="@string/more_color_mode"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowAppColors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="?attr/selectableItemBackground"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageAppColors"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_palette_black_24dp"
+            app:tint="?attr/iconTint" />
+
+        <TextView
+            android:id="@+id/textAppColors"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="@string/more_app_colors"
+            android:textSize="16sp"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="?attr/colorOnPrimary" />
+
+    <LinearLayout
         android:id="@+id/rowAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
