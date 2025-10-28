@@ -7,4 +7,11 @@
     <string name="more_about">O aplikaci</string>
     <string name="more_app_colors">Barvy aplikace</string>
     <string name="more_color_mode">Barevní mód</string>
+    <string name="about_text">
+        <![CDATA[
+        Tuto aplikaci nadesignoval a vytvořil theRacterr. <br/><br/>
+        Některé ikony byly poskytnuté www.freepik.com <br/><br/>
+        Verze aplikace v1.0.0
+        ]]>
+    </string>
 </resources>
