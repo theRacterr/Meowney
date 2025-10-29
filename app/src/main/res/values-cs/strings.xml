@@ -14,4 +14,12 @@
         Verze aplikace v1.0.0
         ]]>
     </string>
+    <string name="dialog_cancel">Zrušit</string>
+    <string name="dialog_confirm">Potvrdit</string>
+    <string-array name="color_mode_options">
+        <item>Světlí</item>
+        <item>Tmavý</item>
+        <item>Podle systému</item>
+    </string-array>
+    <string name="dialog_color_mode">Vyberte barevní mód</string>
 </resources>

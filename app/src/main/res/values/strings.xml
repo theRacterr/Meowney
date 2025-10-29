@@ -14,4 +14,13 @@
         App version v1.0.0
         ]]>
     </string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_confirm">Confirm</string>
+    <string-array name="color_mode_options">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System Default</item>
+    </string-array>
+    <string name="app_version" translatable="false">v1.0.0</string>
+    <string name="dialog_color_mode">Select coler mode</string>
 </resources>
