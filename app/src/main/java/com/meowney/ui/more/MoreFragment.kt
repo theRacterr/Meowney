@@ -51,11 +51,11 @@ class MoreFragment : Fragment() {
         var selectedIndex = 0
 
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Select Language")
+            .setTitle(R.string.dialog_select_language)
             .setSingleChoiceItems(languages, selectedIndex) { _, which ->
                 selectedIndex = which
             }
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton(R.string.dialog_confirm) { dialog, _ ->
                 val selectedLanguage = languageCodes[selectedIndex]
 
                 val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(selectedLanguage)
@@ -63,7 +63,7 @@ class MoreFragment : Fragment() {
 
                 dialog.dismiss()
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(R.string.dialog_cancel, null)
             .show()
     }
 

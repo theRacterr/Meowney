@@ -22,4 +22,5 @@
     </string-array>
     <string name="app_version" translatable="false">v1.0.0</string>
     <string name="dialog_color_mode">Select coler mode</string>
+    <string name="dialog_select_language">Select language</string>
 </resources>

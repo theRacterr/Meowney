@@ -21,4 +21,5 @@
         <item>Podle systému</item>
     </string-array>
     <string name="dialog_color_mode">Vyberte barevní mód</string>
+    <string name="dialog_select_language">Vyberte jazyk</string>
 </resources>
