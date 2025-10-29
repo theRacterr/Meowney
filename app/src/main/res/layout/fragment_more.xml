@@ -133,4 +133,12 @@
             android:textSize="16sp"
             android:layout_marginStart="16dp"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/app_version"
+        android:gravity="center"
+        android:textColor="@color/white_600"/>
 </LinearLayout>
