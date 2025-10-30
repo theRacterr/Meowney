@@ -48,7 +48,8 @@ class MoreFragment : Fragment() {
     private fun showLanguageDialog() {
         val languages = arrayOf("English", "Česky")
         val languageCodes = arrayOf("en", "cs")
-        var selectedIndex = 0
+        val currentLangCode = AppCompatDelegate.getApplicationLocales()[0]?.toLanguageTag() ?: "en"
+        var selectedIndex = languageCodes.indexOf(currentLangCode)
 
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.dialog_select_language)
