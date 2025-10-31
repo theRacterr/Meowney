@@ -34,6 +34,10 @@ class MoreFragment : Fragment() {
             showColorModeDialog()
         }
 
+        binding.rowAppColors.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_more_to_themingFragment)
+        }
+
         binding.rowAbout.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_more_to_aboutFragment)
         }
