@@ -4,14 +4,12 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green_700</item>
         <item name="colorPrimaryVariant">@color/green_900</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. TODO: remove or find a usage -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Icon color. -->
         <item name="iconTint">@color/white</item>
-        <!-- Status bar color -->
+        <!-- Background color. -->
+        <item name="backgroundColor">@color/black</item>
+        <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>

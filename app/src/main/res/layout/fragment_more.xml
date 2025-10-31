@@ -17,12 +17,12 @@
         android:textSize="20sp"
         android:padding="16dp"
         android:background="?attr/colorPrimary"
-        android:textColor="@color/white"/>
+        android:textColor="?attr/colorOnPrimary"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="?attr/colorOnPrimary" />
+        android:background="?attr/backgroundColor" />
 
     <LinearLayout
         android:id="@+id/rowLanguage"
@@ -52,7 +52,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="?attr/colorOnPrimary" />
+        android:background="?attr/backgroundColor" />
 
     <LinearLayout
         android:id="@+id/rowColorMode"
@@ -107,7 +107,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="?attr/colorOnPrimary" />
+        android:background="?attr/backgroundColor" />
 
     <LinearLayout
         android:id="@+id/rowAbout"

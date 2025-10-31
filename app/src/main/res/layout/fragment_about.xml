@@ -13,9 +13,9 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:navigationIcon="@drawable/ic_arrow_left_black_24dp"
-        app:navigationIconTint="@color/white"
+        app:navigationIconTint="?attr/colorOnPrimary"
         app:title="@string/more_about"
-        app:titleTextColor="@color/white" />
+        app:titleTextColor="?attr/colorOnPrimary" />
 
     <TextView
         android:id="@+id/textView"
