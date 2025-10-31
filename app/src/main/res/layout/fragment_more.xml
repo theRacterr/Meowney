@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.more.MoreFragment">
+    tools:context=".ui.more.MoreFragment"
+    tools:ignore="contentDescription">
 
 
     <TextView
@@ -102,6 +103,26 @@
             android:text="@string/more_app_colors"
             android:textSize="16sp"
             android:layout_marginStart="16dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageArrowDown"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_bottom_right_thick_black_24dp"
+            app:tint="?attr/deficitColor" />
+
+        <ImageView
+            android:id="@+id/imageArrowUp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_arrow_top_right_thick_black_24dp"
+            app:tint="?attr/profitColor" />
+
     </LinearLayout>
 
     <View

@@ -1,16 +1,24 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Meowney" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green_700</item>
         <item name="colorPrimaryVariant">@color/green_900</item>
         <item name="colorOnPrimary">@color/white</item>
+
         <!-- Icon color. -->
         <item name="iconTint">@color/white</item>
+
         <!-- Background color. -->
         <item name="backgroundColor">@color/black</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/black</item>
         <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Profit and deficit colors. -->
+        <item name="profitColor">@color/green_500</item>
+        <item name="deficitColor">@color/red_500</item>
     </style>
 </resources>
