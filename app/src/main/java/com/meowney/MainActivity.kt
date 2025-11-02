@@ -1,6 +1,5 @@
 package com.meowney
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -15,9 +14,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val prefs = getSharedPreferences("theme_prefs", MODE_PRIVATE)
+        val themeOverlay = prefs.getInt("themeOverlay", 0)
+        if (themeOverlay != 0) {
+            theme.applyStyle(themeOverlay, true)
+        }
+
         super.onCreate(savedInstanceState)
 
-        val sharedPref = getSharedPreferences("MeowneyPrefs", Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("MeowneyPrefs", MODE_PRIVATE)
         val nightMode = sharedPref.getInt("night_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         AppCompatDelegate.setDefaultNightMode(nightMode)
 
