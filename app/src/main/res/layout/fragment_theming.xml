@@ -23,4 +23,10 @@
         android:layout_height="40dp"
         android:background="@color/green_700"/>
 
+    <View
+        android:id="@+id/colorRed"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/red_700"/>
+
 </LinearLayout>

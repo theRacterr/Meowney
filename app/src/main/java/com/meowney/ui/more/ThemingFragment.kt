@@ -28,7 +28,8 @@ class ThemingFragment : Fragment() {
         val prefs = requireContext().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
 
         val colorOverlays = mapOf(
-            R.id.colorGreen to R.style.ThemeOverlay_Green
+            R.id.colorGreen to R.style.ThemeOverlay_Green,
+            R.id.colorRed to R.style.ThemeOverlay_Red
         )
 
         colorOverlays.forEach { (colorId, overlayId) ->

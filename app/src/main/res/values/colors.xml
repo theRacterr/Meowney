@@ -7,8 +7,13 @@
     <color name="white_600">#808080</color>
 
     <!-- Colors. -->
+    <color name="green_500_ripple">#293CC343</color>
     <color name="green_500">#3CC343</color>
     <color name="green_700">#137a02</color>
     <color name="green_900">#0E4001</color>
+
+    <color name="red_500_ripple">#29FF0000</color>
     <color name="red_500">#FF0000</color>
+    <color name="red_700">#A90000</color>
+    <color name="red_900">#660000</color>
 </resources>
