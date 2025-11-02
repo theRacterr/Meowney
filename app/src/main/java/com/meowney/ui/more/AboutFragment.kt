@@ -25,6 +25,7 @@ class AboutFragment : Fragment() {
             navController.navigateUp()
         }
 
+        // passing about string as HTML for formatting
         val textView = view.findViewById<TextView>(R.id.textView)
         textView.text = HtmlCompat.fromHtml(getString(R.string.about_text), HtmlCompat.FROM_HTML_MODE_LEGACY)
 

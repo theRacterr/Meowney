@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        // applying saved theme color
         val prefs = getSharedPreferences("theme_prefs", MODE_PRIVATE)
         val themeOverlay = prefs.getInt("themeOverlay", 0)
         if (themeOverlay != 0) {
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        // applying saved night mode
         val sharedPref = getSharedPreferences("MeowneyPrefs", MODE_PRIVATE)
         val nightMode = sharedPref.getInt("night_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         AppCompatDelegate.setDefaultNightMode(nightMode)
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
 
+        // handling navbar visibility
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val bottomNavigationView = binding.navView

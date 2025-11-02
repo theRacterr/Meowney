@@ -19,12 +19,14 @@ class ThemingFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_theming, container, false)
 
+        // toolbar
         val toolbar = view.findViewById<MaterialToolbar>(R.id.themingToolbar)
         val navController = findNavController()
         toolbar.setNavigationOnClickListener {
             navController.navigateUp()
         }
 
+        // theme colors
         val prefs = requireContext().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
 
         val colorOverlays = mapOf(
