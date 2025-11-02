@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         // applying saved theme color
-        val prefs = getSharedPreferences("theme_prefs", MODE_PRIVATE)
-        val themeOverlay = prefs.getInt("themeOverlay", 0)
+        val themePrefs = getSharedPreferences("theme_prefs", MODE_PRIVATE)
+        val themeOverlay = themePrefs.getInt("themeOverlay", 0)
         if (themeOverlay != 0) {
             theme.applyStyle(themeOverlay, true)
         }
