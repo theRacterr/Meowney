@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.more.AboutFragment">
+    tools:context=".ui.entries.AddEntryFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/aboutToolbar"
+        android:id="@+id/addEntryToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:navigationIcon="@drawable/ic_arrow_left_black_24dp"
         app:navigationIconTint="?attr/colorOnPrimary"
-        app:title="@string/title_about"
+        app:title="@string/title_add_entry"
         app:titleTextColor="?attr/colorOnPrimary" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:textSize="24sp" />
 
 </LinearLayout>

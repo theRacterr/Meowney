@@ -4,8 +4,8 @@
     <string name="title_stats">Staty</string>
     <string name="title_more">Více</string>
     <string name="more_language">Jazyk</string>
-    <string name="more_about">O aplikaci</string>
-    <string name="more_app_colors">Barvy aplikace</string>
+    <string name="title_about">O aplikaci</string>
+    <string name="title_app_colors">Barvy aplikace</string>
     <string name="more_color_mode">Barevný mód</string>
     <string name="about_text">
         <![CDATA[
@@ -23,4 +23,5 @@
     <string name="dialog_color_mode">Vyberte barevní mód</string>
     <string name="dialog_select_language">Vyberte jazyk</string>
     <string name="fab_content_description">tlačítko přidání</string>
+    <string name="title_add_entry">Přidejte záznam</string>
 </resources>

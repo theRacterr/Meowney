@@ -97,7 +97,7 @@
             android:id="@+id/textAppColors"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:text="@string/more_app_colors"
+            android:text="@string/title_app_colors"
             android:textSize="16sp"
             android:layout_marginStart="16dp"/>
 
@@ -147,7 +147,7 @@
             android:id="@+id/textAbout"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
-            android:text="@string/more_about"
+            android:text="@string/title_about"
             android:textSize="16sp"
             android:layout_marginStart="16dp"/>
     </LinearLayout>

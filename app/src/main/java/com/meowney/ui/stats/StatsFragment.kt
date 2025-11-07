@@ -5,15 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.meowney.R
+import com.meowney.databinding.FragmentStatsBinding
 
 
 class StatsFragment : Fragment() {
+
+    private var _binding: FragmentStatsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_stats, container, false)
+        _binding = FragmentStatsBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        return view
     }
 }
