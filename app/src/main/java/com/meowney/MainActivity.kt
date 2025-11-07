@@ -58,12 +58,6 @@ class MainActivity : AppCompatActivity() {
                         navController.navigate(R.id.action_navigation_entries_to_addEntryFragment)
                     }
                 }
-                R.id.navigation_stats -> {
-                    fab.show()
-                    fab.setOnClickListener {
-                        // TODO: do something
-                    }
-                }
                 else -> fab.hide()
             }
         }

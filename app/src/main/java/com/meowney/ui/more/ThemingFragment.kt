@@ -7,23 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.appbar.MaterialToolbar
 import com.meowney.R
 import androidx.core.content.edit
+import com.meowney.databinding.FragmentThemingBinding
 
 class ThemingFragment : Fragment() {
+
+    private var _binding: FragmentThemingBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_theming, container, false)
+        _binding = FragmentThemingBinding.inflate(inflater, container, false)
+        val view = binding.root
 
         // toolbar
-        val toolbar = view.findViewById<MaterialToolbar>(R.id.themingToolbar)
-        val navController = findNavController()
-        toolbar.setNavigationOnClickListener {
-            navController.navigateUp()
+        binding.themingToolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
         }
 
         // theme colors
@@ -34,6 +36,7 @@ class ThemingFragment : Fragment() {
             R.id.colorRed to R.style.ThemeOverlay_Red
         )
 
+        // TODO: migrate to view binding
         colorOverlays.forEach { (colorId, overlayId) ->
             view.findViewById<View>(colorId).setOnClickListener {
                 prefs.edit { putInt("themeOverlay", overlayId) }
@@ -42,5 +45,10 @@ class ThemingFragment : Fragment() {
         }
 
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
