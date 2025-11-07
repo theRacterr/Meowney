@@ -45,7 +45,27 @@ class MainActivity : AppCompatActivity() {
                 else -> bottomNavigationView.visibility = View.GONE
             }
         }
-
         navView.setupWithNavController(navController)
+
+        // handling fab
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val fab = binding.fab
+            when (destination.id) {
+                R.id.navigation_entries -> {
+                    fab.show()
+                    fab.setOnClickListener {
+                        // TODO: do something
+                    }
+                }
+                R.id.navigation_stats -> {
+                    fab.show()
+                    fab.setOnClickListener {
+                        // TODO: do something
+                    }
+                }
+                else -> fab.hide()
+            }
+        }
+
     }
 }
