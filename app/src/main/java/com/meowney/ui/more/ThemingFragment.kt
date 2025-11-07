@@ -1,6 +1,7 @@
 package com.meowney.ui.more
 
 import android.content.Context
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -43,12 +44,13 @@ class ThemingFragment : Fragment() {
 
     private fun populateThemeGrid() {
         val prefs = requireContext().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
+        val currentOverlayId = prefs.getInt("themeOverlay", 0)
         val styleFields = R.style::class.java.fields
 
         styleFields.forEach { field ->
             if (field.name.startsWith("ThemeOverlay_")) {
                 val overlayId = field.getInt(null)
-                val colorView = createColorView(overlayId)
+                val colorView = createColorView(overlayId, (currentOverlayId == overlayId))
                 colorView.setOnClickListener {
                     prefs.edit { putInt("themeOverlay", overlayId) }
                     requireActivity().recreate()
@@ -58,7 +60,7 @@ class ThemingFragment : Fragment() {
         }
     }
 
-    private fun createColorView(overlayId: Int): View {
+    private fun createColorView(overlayId: Int, isSelected: Boolean): View {
         val view = View(context)
         val params = GridLayout.LayoutParams().apply {
             width = dpToPx(64)
@@ -73,6 +75,14 @@ class ThemingFragment : Fragment() {
         val contextThemeWrapper = androidx.appcompat.view.ContextThemeWrapper(context, overlayId)
         contextThemeWrapper.theme.resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true)
         view.setBackgroundColor(typedValue.data)
+
+        if (isSelected) {
+            val strokeWidth = dpToPx(4)
+            val drawable = GradientDrawable()
+            drawable.setColor(typedValue.data)
+            drawable.setStroke(strokeWidth, resources.getColor(R.color.white_400, null))
+            view.background = drawable
+        }
 
         return view
     }

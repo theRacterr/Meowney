@@ -14,4 +14,26 @@
         <item name="colorOnPrimaryVariant">@color/white_400</item>
         <item name="colorOnPrimaryRipple">@color/red_500_ripple</item>
     </style>
+    <style name="ThemeOverlay.Blue" parent="">
+        <item name="colorPrimary">@color/blue_700</item>
+        <item name="colorPrimaryVariant">@color/blue_900</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimaryVariant">@color/white_400</item>
+        <item name="colorOnPrimaryRipple">@color/blue_500_ripple</item>
+    </style>
+    <style name="ThemeOverlay.HotPink" parent="">
+        <item name="colorPrimary">@color/hot_pink_500</item>
+        <item name="colorPrimaryVariant">@color/hot_pink_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimaryVariant">@color/white_200</item>
+        <item name="colorOnPrimaryRipple">@color/hot_pink_700_ripple</item>
+    </style>
+    <style name="ThemeOverlay.Yellow" parent="">
+        <item name="colorPrimary">@color/yellow_500</item>
+        <item name="colorPrimaryVariant">@color/yellow_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimaryVariant">@color/black_400</item>
+        <item name="colorOnPrimaryRipple">@color/yellow_700_ripple</item>
+    </style>
+
 </resources>
