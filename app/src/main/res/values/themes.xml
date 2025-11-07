@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/green_700</item>
         <item name="colorPrimaryVariant">@color/green_900</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnPrimaryVariant">@color/white_200</item>
+        <item name="colorOnPrimaryVariant">@color/white_400</item>
         <item name="colorOnPrimaryRipple">@color/green_500_ripple</item>
 
         <!-- Icon color. -->

@@ -9,16 +9,13 @@
     tools:ignore="contentDescription">
 
 
-    <TextView
-        android:id="@+id/textView2"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/moreToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:text="@string/title_more"
-        android:gravity="center_vertical"
-        android:textSize="20sp"
-        android:padding="16dp"
         android:background="?attr/colorPrimary"
-        android:textColor="?attr/colorOnPrimary"/>
+        app:title="@string/title_more"
+        app:titleTextColor="?attr/colorOnPrimary" />
 
     <View
         android:layout_width="match_parent"

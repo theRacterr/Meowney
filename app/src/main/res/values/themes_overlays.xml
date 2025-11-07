@@ -4,14 +4,14 @@
         <item name="colorPrimary">@color/green_700</item>
         <item name="colorPrimaryVariant">@color/green_900</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnPrimaryVariant">@color/white_200</item>
+        <item name="colorOnPrimaryVariant">@color/white_400</item>
         <item name="colorOnPrimaryRipple">@color/green_500_ripple</item>
     </style>
     <style name="ThemeOverlay.Red" parent="">
         <item name="colorPrimary">@color/red_700</item>
         <item name="colorPrimaryVariant">@color/red_900</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnPrimaryVariant">@color/white_200</item>
+        <item name="colorOnPrimaryVariant">@color/white_400</item>
         <item name="colorOnPrimaryRipple">@color/red_500_ripple</item>
     </style>
 </resources>
