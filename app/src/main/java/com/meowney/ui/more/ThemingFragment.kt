@@ -2,9 +2,11 @@ package com.meowney.ui.more
 
 import android.content.Context
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.meowney.R
@@ -28,21 +30,8 @@ class ThemingFragment : Fragment() {
             findNavController().navigateUp()
         }
 
-        // theme colors
-        val prefs = requireContext().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
-
-        val colorOverlays = mapOf(
-            R.id.colorGreen to R.style.ThemeOverlay_Green,
-            R.id.colorRed to R.style.ThemeOverlay_Red
-        )
-
-        // TODO: migrate to view binding
-        colorOverlays.forEach { (colorId, overlayId) ->
-            view.findViewById<View>(colorId).setOnClickListener {
-                prefs.edit { putInt("themeOverlay", overlayId) }
-                requireActivity().recreate()
-            }
-        }
+        // theme colors grid
+        populateThemeGrid()
 
         return view
     }
@@ -50,5 +39,45 @@ class ThemingFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun populateThemeGrid() {
+        val prefs = requireContext().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
+        val styleFields = R.style::class.java.fields
+
+        styleFields.forEach { field ->
+            if (field.name.startsWith("ThemeOverlay_")) {
+                val overlayId = field.getInt(null)
+                val colorView = createColorView(overlayId)
+                colorView.setOnClickListener {
+                    prefs.edit { putInt("themeOverlay", overlayId) }
+                    requireActivity().recreate()
+                }
+                binding.colorGrid.addView(colorView)
+            }
+        }
+    }
+
+    private fun createColorView(overlayId: Int): View {
+        val view = View(context)
+        val params = GridLayout.LayoutParams().apply {
+            width = dpToPx(64)
+            height = dpToPx(32)
+            val margin = dpToPx(8)
+            setMargins(margin, margin, margin, margin)
+        }
+        view.layoutParams = params
+
+        // Get the colorPrimary from the theme overlay
+        val typedValue = TypedValue()
+        val contextThemeWrapper = androidx.appcompat.view.ContextThemeWrapper(context, overlayId)
+        contextThemeWrapper.theme.resolveAttribute(androidx.appcompat.R.attr.colorPrimary, typedValue, true)
+        view.setBackgroundColor(typedValue.data)
+
+        return view
+    }
+
+    private fun dpToPx(dp: Int): Int {
+        return (dp * resources.displayMetrics.density).toInt()
     }
 }

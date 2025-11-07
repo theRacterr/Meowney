@@ -24,21 +24,6 @@
         android:columnCount="4"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        android:padding="16dp">
-
-        <View
-            android:id="@+id/colorRed"
-            android:layout_width="64dp"
-            android:layout_height="32dp"
-            android:background="@color/red_700"
-            android:layout_margin="8dp" />
-
-        <View
-            android:id="@+id/colorGreen"
-            android:layout_width="64dp"
-            android:layout_height="32dp"
-            android:background="@color/green_700"
-            android:layout_margin="8dp" />
-    </GridLayout>
+        android:padding="16dp" />
 
 </LinearLayout>
