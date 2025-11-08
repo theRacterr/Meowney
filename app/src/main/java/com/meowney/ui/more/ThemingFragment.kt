@@ -80,7 +80,7 @@ class ThemingFragment : Fragment() {
             val strokeWidth = dpToPx(4)
             val drawable = GradientDrawable()
             drawable.setColor(typedValue.data)
-            drawable.setStroke(strokeWidth, resources.getColor(R.color.white_400, null))
+            drawable.setStroke(strokeWidth, resources.getColor(R.color.grey_400, null))
             view.background = drawable
         }
 

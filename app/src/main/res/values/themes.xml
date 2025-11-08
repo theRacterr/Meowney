@@ -3,24 +3,24 @@
     <style name="Theme.Meowney" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/green_700</item>
-        <item name="colorPrimaryVariant">@color/green_900</item>
+        <item name="colorPrimary">@color/light_green_700</item>
+        <item name="colorPrimaryVariant">@color/light_green_900</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnPrimaryVariant">@color/white_400</item>
+        <item name="colorOnPrimaryVariant">@color/grey_400</item>
         <item name="colorOnPrimaryRipple">@color/green_500_ripple</item>
 
         <!-- Icon color. -->
         <item name="iconTint">@color/black</item>
 
         <!-- Background color. -->
-        <item name="backgroundColor">@color/white_200</item>
+        <item name="backgroundColor">@color/grey_300</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
 
         <!-- Profit and deficit colors. -->
-        <item name="profitColor">@color/green_500</item>
-        <item name="deficitColor">@color/red_500</item>
+        <item name="profitColor">@color/green_profit</item>
+        <item name="deficitColor">@color/red_deficit</item>
     </style>
 </resources>
