@@ -11,11 +11,18 @@
         android:id="@+id/aboutToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/toolbarColor"
         app:navigationIcon="@drawable/ic_arrow_left_black_24dp"
-        app:navigationIconTint="?attr/colorOnPrimary"
+        app:navigationIconTint="?attr/toolbarElementColor"
         app:title="@string/title_about"
-        app:titleTextColor="?attr/colorOnPrimary" />
+        app:titleTextColor="?attr/toolbarElementColor" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="?attr/toolbarElementColor" />
 
     <TextView
         android:id="@+id/aboutTextView"

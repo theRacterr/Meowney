@@ -8,19 +8,20 @@
     tools:context=".ui.more.MoreFragment"
     tools:ignore="contentDescription">
 
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/moreToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="?attr/toolbarColor"
         app:title="@string/title_more"
-        app:titleTextColor="?attr/colorOnPrimary" />
+        app:titleTextColor="?attr/toolbarElementColor" />
 
     <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="?attr/backgroundColor" />
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="?attr/toolbarElementColor" />
 
     <LinearLayout
         android:id="@+id/rowLanguage"

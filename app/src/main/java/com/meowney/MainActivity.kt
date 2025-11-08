@@ -5,8 +5,8 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.meowney.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,16 +28,40 @@ class MainActivity : AppCompatActivity() {
         val nightMode = sharedPref.getInt("night_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         AppCompatDelegate.setDefaultNightMode(nightMode)
 
-
+        // inflating layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // handling navbar
+        // setupWithNavController is not used to eliminate the transition animation
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        navView.setupWithNavController(navController)
 
+        val navOptions = NavOptions.Builder()
+            .setEnterAnim(0)
+            .setExitAnim(0)
+            .setPopEnterAnim(0)
+            .setPopExitAnim(0)
+            .build()
 
-        // handling navbar visibility
+        navView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_entries -> {
+                    navController.navigate(R.id.navigation_entries, null, navOptions)
+                    true
+                }
+                R.id.navigation_stats -> {
+                    navController.navigate(R.id.navigation_stats, null, navOptions)
+                    true
+                }
+                R.id.navigation_more -> {
+                    navController.navigate(R.id.navigation_more, null, navOptions)
+                    true
+                }
+                else -> false
+            }
+        }
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val bottomNavigationView = binding.navView
             when (destination.id) {

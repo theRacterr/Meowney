@@ -19,6 +19,10 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
 
+        <!-- Toolbar colors. -->
+        <item name="toolbarColor">@color/white</item>
+        <item name="toolbarElementColor">@color/black</item>
+
         <!-- Profit and deficit colors. -->
         <item name="profitColor">@color/green_profit</item>
         <item name="deficitColor">@color/red_deficit</item>
