@@ -15,34 +15,34 @@
 
     <!-- App colors. -->
     <color name="green_500_ripple">#294CAF50</color>
-    <color name="light_green_700">#689F38</color>
-    <color name="light_green_900">#33691E</color>
+    <color name="light_green_700">#CC689F38</color>
+    <color name="light_green_900">#CC33691E</color>
 
     <color name="red_500_ripple">#29F44336</color>
-    <color name="red_A700">#D50000</color>
-    <color name="red_900">#B71C1C</color>
+    <color name="red_A700">#CCD50000</color>
+    <color name="red_900">#CCB71C1C</color>
 
     <color name="blue_500_ripple">#292196F3</color>
-    <color name="blue_700">#1976D2</color>
-    <color name="blue_900">#0D47A1</color>
+    <color name="blue_700">#CC1976D2</color>
+    <color name="blue_900">#CC0D47A1</color>
 
     <color name="yellow_700_ripple">#29FBC02D</color>
-    <color name="yellow_400">#FFEE58</color>
-    <color name="yellow_600">#FDD835</color>
+    <color name="yellow_400">#CCFFEE58</color>
+    <color name="yellow_600">#CCFDD835</color>
 
     <color name="pink_700_ripple">#29C2185B</color>
-    <color name="pink_500">#E91E63</color>
-    <color name="pink_700">#C2185B</color>
+    <color name="pink_500">#CCE91E63</color>
+    <color name="pink_700">#CCC2185B</color>
 
     <color name="deep_purple_900_ripple">#29311B92</color>
-    <color name="deep_purple_600">#5E35B1</color>
-    <color name="deep_purple_800">#4527A0</color>
+    <color name="deep_purple_600">#CC5E35B1</color>
+    <color name="deep_purple_800">#CC4527A0</color>
 
     <color name="cyan_800_ripple">#2900838F</color>
-    <color name="cyan_500">#00BCD4</color>
-    <color name="cyan_700">#0097A7</color>
+    <color name="cyan_500">#CC00BCD4</color>
+    <color name="cyan_700">#CC0097A7</color>
 
     <color name="blue_grey_900_ripple">#29263238</color>
-    <color name="blue_grey_700">#455A64</color>
-    <color name="blue_grey_800">#455A64</color>
+    <color name="blue_grey_700">#CC455A64</color>
+    <color name="blue_grey_800">#CC455A64</color>
 </resources>

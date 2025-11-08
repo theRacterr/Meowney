@@ -45,8 +45,8 @@
     <style name="ThemeOverlay.Cyan" parent="">
         <item name="colorPrimary">@color/cyan_500</item>
         <item name="colorPrimaryVariant">@color/cyan_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <item name="colorOnPrimaryVariant">@color/grey_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimaryVariant">@color/grey_400</item>
         <item name="colorOnPrimaryRipple">@color/cyan_800_ripple</item>
     </style>
     <style name="ThemeOverlay.BlueGrey" parent="">
