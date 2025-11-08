@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_entries">Zápisy</string>
-    <string name="title_stats">Staty</string>
+    <string name="title_stats">Přehled</string>
     <string name="title_more">Více</string>
     <string name="more_language">Jazyk</string>
     <string name="title_about">O aplikaci</string>

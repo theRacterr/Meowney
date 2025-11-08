@@ -15,12 +15,15 @@
         app:navigationIcon="@drawable/ic_arrow_left_black_24dp"
         app:navigationIconTint="?attr/toolbarElementColor"
         app:title="@string/title_add_entry"
-        app:titleTextColor="?attr/toolbarElementColor" />
+        app:titleTextColor="?attr/toolbarElementColor"
+        app:titleCentered="true" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         android:background="?android:attr/listDivider"
         android:backgroundTint="?attr/toolbarElementColor" />
 

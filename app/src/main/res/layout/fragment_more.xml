@@ -14,150 +14,165 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/toolbarColor"
         app:title="@string/title_more"
-        app:titleTextColor="?attr/toolbarElementColor" />
+        app:titleTextColor="?attr/toolbarElementColor"
+        app:titleCentered="true" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         android:background="?android:attr/listDivider"
         android:backgroundTint="?attr/toolbarElementColor" />
 
-    <LinearLayout
-        android:id="@+id/rowLanguage"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageLanguage"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_earth_black_24dp"
-            app:tint="?attr/iconTint" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textLanguage"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:text="@string/more_language"
-            android:textSize="16sp"
-            android:layout_marginStart="16dp"/>
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/rowLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="?attr/backgroundColor" />
+                <ImageView
+                    android:id="@+id/imageLanguage"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_earth_black_24dp"
+                    app:tint="?attr/iconTint" />
 
-    <LinearLayout
-        android:id="@+id/rowColorMode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp">
+                <TextView
+                    android:id="@+id/textLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/more_language"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageColorMode"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_moon_black_24dp"
-            app:tint="?attr/iconTint" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="?attr/backgroundColor" />
 
-        <TextView
-            android:id="@+id/textColorMode"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:text="@string/more_color_mode"
-            android:textSize="16sp"
-            android:layout_marginStart="16dp"/>
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/rowColorMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-    <LinearLayout
-        android:id="@+id/rowAppColors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp">
+                <ImageView
+                    android:id="@+id/imageColorMode"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_moon_black_24dp"
+                    app:tint="?attr/iconTint" />
 
-        <ImageView
-            android:id="@+id/imageAppColors"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_palette_black_24dp"
-            app:tint="?attr/iconTint" />
+                <TextView
+                    android:id="@+id/textColorMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/more_color_mode"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/textAppColors"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:text="@string/title_app_colors"
-            android:textSize="16sp"
-            android:layout_marginStart="16dp"/>
+            <LinearLayout
+                android:id="@+id/rowAppColors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+                <ImageView
+                    android:id="@+id/imageAppColors"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_palette_black_24dp"
+                    app:tint="?attr/iconTint" />
 
-        <ImageView
-            android:id="@+id/imageArrowDown"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_arrow_bottom_right_thick_black_24dp"
-            app:tint="?attr/deficitColor" />
+                <TextView
+                    android:id="@+id/textAppColors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/title_app_colors"
+                    android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/imageArrowUp"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_arrow_top_right_thick_black_24dp"
-            app:tint="?attr/profitColor" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
 
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageArrowDown"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_bottom_right_thick_black_24dp"
+                    app:tint="?attr/deficitColor" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:background="?attr/backgroundColor" />
+                <ImageView
+                    android:id="@+id/imageArrowUp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_top_right_thick_black_24dp"
+                    app:tint="?attr/profitColor" />
 
-    <LinearLayout
-        android:id="@+id/rowAbout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:background="?attr/selectableItemBackground"
-        android:padding="16dp">
+            </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageAbout"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/ic_about_black_24dp"
-            app:tint="?attr/iconTint" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="?attr/backgroundColor" />
 
-        <TextView
-            android:id="@+id/textAbout"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:text="@string/title_about"
-            android:textSize="16sp"
-            android:layout_marginStart="16dp"/>
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/rowAbout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="@string/app_version"
-        android:gravity="center"
-        android:textColor="@color/grey_600"/>
+                <ImageView
+                    android:id="@+id/imageAbout"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_about_black_24dp"
+                    app:tint="?attr/iconTint" />
+
+                <TextView
+                    android:id="@+id/textAbout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/title_about"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/app_version"
+                android:textColor="@color/grey_600" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
