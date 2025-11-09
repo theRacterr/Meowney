@@ -4,16 +4,13 @@
 
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/light_green_700</item>
-        <item name="colorPrimaryVariant">@color/light_green_900</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnPrimaryVariant">@color/grey_400</item>
-        <item name="colorOnPrimaryRipple">@color/green_500_ripple</item>
 
         <!-- Icon color. -->
         <item name="iconTint">@color/black</item>
 
         <!-- Background color. -->
-        <item name="backgroundColor">@color/grey_300</item>
+        <item name="android:selectableItemBackground">@color/white</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/white</item>
