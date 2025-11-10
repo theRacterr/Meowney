@@ -34,15 +34,15 @@
         android:text="@string/title_app_colors"
         android:textSize="20sp"/>
 
-    <GridLayout
+    <androidx.gridlayout.widget.GridLayout
         android:id="@+id/colorGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="4"
         android:layout_gravity="center_horizontal"
-        android:orientation="horizontal"
         android:paddingLeft="16dp"
+        android:paddingTop="0dp"
         android:paddingRight="16dp"
-        android:paddingTop="0dp"/>
+        app:columnCount="4"
+        app:orientation="horizontal"/>
 
 </LinearLayout>
