@@ -2,26 +2,34 @@
 <resources>
     <style name="ThemeOverlay.Green" parent="">
         <item name="colorPrimary">@color/light_green_700</item>
+        <item name="colorPrimaryVariant">@color/light_green_selected</item>
     </style>
     <style name="ThemeOverlay.Red" parent="">
         <item name="colorPrimary">@color/red_A700</item>
+        <item name="colorPrimaryVariant">@color/red_selected</item>
     </style>
     <style name="ThemeOverlay.Blue" parent="">
         <item name="colorPrimary">@color/blue_700</item>
+        <item name="colorPrimaryVariant">@color/blue_selected</item>
     </style>
     <style name="ThemeOverlay.Pink" parent="">
         <item name="colorPrimary">@color/pink_500</item>
+        <item name="colorPrimaryVariant">@color/pink_selected</item>
     </style>
     <style name="ThemeOverlay.Orange" parent="">
         <item name="colorPrimary">@color/orange_800</item>
+        <item name="colorPrimaryVariant">@color/orange_selected</item>
     </style>
     <style name="ThemeOverlay.DeepPurple" parent="">
         <item name="colorPrimary">@color/deep_purple_600</item>
+        <item name="colorPrimaryVariant">@color/deep_purple_selected</item>
     </style>
     <style name="ThemeOverlay.Cyan" parent="">
         <item name="colorPrimary">@color/cyan_500</item>
+        <item name="colorPrimaryVariant">@color/cyan_selected</item>
     </style>
     <style name="ThemeOverlay.BlueGrey" parent="">
         <item name="colorPrimary">@color/blue_grey_700</item>
+        <item name="colorPrimaryVariant">@color/blue_grey_selected</item>
     </style>
 </resources>

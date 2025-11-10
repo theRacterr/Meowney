@@ -25,4 +25,7 @@
     <string name="dialog_select_language">Select language</string>
     <string name="fab_content_description">add button</string>
     <string name="title_add_entry">Add an entry</string>
+    <string name="entries_income">Income</string>
+    <string name="entries_expense">Expense</string>
+    <string name="entries_transfer">Transfer</string>
 </resources>

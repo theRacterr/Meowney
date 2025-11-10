@@ -27,4 +27,67 @@
         android:background="?android:attr/listDivider"
         android:backgroundTint="?attr/toolbarElementColor" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioIncome"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:text="@string/entries_income"
+                    android:textAllCaps="true"
+                    android:autoSizeTextType="uniform"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:background="@color/radio_button_color"
+                    android:button="@null"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:id="@+id/radioExpense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:layout_marginHorizontal="1dp"
+                    android:text="@string/entries_expense"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:background="@color/radio_button_color"
+                    android:textAllCaps="true"
+                    android:autoSizeTextType="uniform"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/radioTransfer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingVertical="16dp"
+                    android:text="@string/entries_transfer"
+                    android:textColor="?attr/colorOnPrimary"
+                    android:background="@color/radio_button_color"
+                    android:textAllCaps="true"
+                    android:autoSizeTextType="uniform"
+                    android:button="@null" />
+            </RadioGroup>
+
+            <!-- TODO: rest of the screen -->
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

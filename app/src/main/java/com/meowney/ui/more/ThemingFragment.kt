@@ -42,6 +42,7 @@ class ThemingFragment : Fragment() {
         _binding = null
     }
 
+    // TODO: migrate to datastore
     private fun populateThemeGrid() {
         val prefs = requireContext().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
         val currentOverlayId = prefs.getInt("themeOverlay", 0)

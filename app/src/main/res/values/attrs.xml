@@ -3,10 +3,6 @@
     <attr name="profitColor" format="color" />
     <attr name="deficitColor" format="color" />
 
-    <!-- colors for bottom navbar buttons -->
-    <attr name="colorOnPrimaryVariant" format="color" />
-    <attr name="colorOnPrimaryRipple" format="color" />
-
     <!-- Toolbar colors. -->
     <attr name="toolbarColor" format="color" />
     <attr name="toolbarElementColor" format="color" />

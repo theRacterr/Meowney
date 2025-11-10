@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // TODO: migrate to datastore
         // applying saved theme color
         val themePrefs = getSharedPreferences("theme_prefs", MODE_PRIVATE)
         val themeOverlay = themePrefs.getInt("themeOverlay", 0)
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             theme.applyStyle(themeOverlay, true)
         }
 
+        // TODO: migrate to datastore
         // applying saved night mode
         val sharedPref = getSharedPreferences("MeowneyPrefs", MODE_PRIVATE)
         val nightMode = sharedPref.getInt("night_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
@@ -85,6 +87,6 @@ class MainActivity : AppCompatActivity() {
                 else -> fab.hide()
             }
         }
-
+        // TODO: onPause, onResume privacy mode
     }
 }

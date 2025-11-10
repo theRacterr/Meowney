@@ -24,4 +24,7 @@
     <string name="dialog_select_language">Vyberte jazyk</string>
     <string name="fab_content_description">tlačítko přidání</string>
     <string name="title_add_entry">Přidejte záznam</string>
+    <string name="entries_income">Příjem</string>
+    <string name="entries_expense">Výdaj</string>
+    <string name="entries_transfer">Převod</string>
 </resources>

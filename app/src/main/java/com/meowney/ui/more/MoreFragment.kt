@@ -41,6 +41,7 @@ class MoreFragment : Fragment() {
         binding.rowAbout.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_more_to_aboutFragment)
         }
+        // TODO: privacy row -> privacy fragment
         return view
     }
 
@@ -72,6 +73,7 @@ class MoreFragment : Fragment() {
             .show()
     }
 
+    // TODO: migrate to datastore
     private fun showColorModeDialog() {
         val colorModes = resources.getStringArray(R.array.color_mode_options)
         val colorModeValues = arrayOf(AppCompatDelegate.MODE_NIGHT_NO, AppCompatDelegate.MODE_NIGHT_YES, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
