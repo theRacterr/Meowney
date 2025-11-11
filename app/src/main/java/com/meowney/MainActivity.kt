@@ -5,24 +5,32 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
+import com.meowney.data.SettingsDataStore
 import com.meowney.databinding.ActivityMainBinding
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var settingsDataStore: SettingsDataStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        settingsDataStore = SettingsDataStore(this)
 
-        // TODO: migrate to datastore
         // applying saved theme color
-        val themePrefs = getSharedPreferences("theme_prefs", MODE_PRIVATE)
-        val themeOverlay = themePrefs.getInt("themeOverlay", 0)
-        if (themeOverlay != 0) {
-            theme.applyStyle(themeOverlay, true)
+        runBlocking {
+            val themeOverlay = settingsDataStore.themeOverlay.first()
+            if (themeOverlay != 0) {
+                setTheme(themeOverlay)
+            }
         }
+
+        super.onCreate(savedInstanceState)
 
         // TODO: migrate to datastore
         // applying saved night mode

@@ -1,6 +1,5 @@
 package com.meowney.ui.more
 
-import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.TypedValue
@@ -11,13 +10,17 @@ import android.widget.GridLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.meowney.R
-import androidx.core.content.edit
+import androidx.lifecycle.lifecycleScope
+import com.meowney.data.SettingsDataStore
 import com.meowney.databinding.FragmentThemingBinding
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class ThemingFragment : Fragment() {
 
     private var _binding: FragmentThemingBinding? = null
     private val binding get() = _binding!!
+    private val settingsDataStore by lazy { SettingsDataStore(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,21 +45,25 @@ class ThemingFragment : Fragment() {
         _binding = null
     }
 
-    // TODO: migrate to datastore
     private fun populateThemeGrid() {
-        val prefs = requireContext().getSharedPreferences("theme_prefs", Context.MODE_PRIVATE)
-        val currentOverlayId = prefs.getInt("themeOverlay", 0)
-        val styleFields = R.style::class.java.fields
-
-        styleFields.forEach { field ->
-            if (field.name.startsWith("ThemeOverlay_")) {
-                val overlayId = field.getInt(null)
-                val colorView = createColorView(overlayId, (currentOverlayId == overlayId))
-                colorView.setOnClickListener {
-                    prefs.edit { putInt("themeOverlay", overlayId) }
-                    requireActivity().recreate()
+        viewLifecycleOwner.lifecycleScope.launch {
+            var currentOverlayId = settingsDataStore.themeOverlay.first()
+            if (currentOverlayId == 0) {
+                currentOverlayId = R.style.ThemeOverlay_Blue
+            }
+            val styleFields = R.style::class.java.fields
+            styleFields.forEach { field ->
+                if (field.name.startsWith("ThemeOverlay_")) {
+                    val overlayId = field.getInt(null)
+                    val colorView = createColorView(overlayId, (currentOverlayId == overlayId))
+                    colorView.setOnClickListener {
+                        viewLifecycleOwner.lifecycleScope.launch {
+                            settingsDataStore.saveThemeOverlay(overlayId)
+                            requireActivity().recreate()
+                        }
+                    }
+                    binding.colorGrid.addView(colorView)
                 }
-                binding.colorGrid.addView(colorView)
             }
         }
     }
