@@ -28,4 +28,5 @@
     <string name="entries_expense">Výdaj</string>
     <string name="entries_transfer">Převod</string>
     <string name="title_privacy">Soukromý</string>
+    <string name="privacy_hide_recents">Schovat obsah aplikace?</string>
 </resources>

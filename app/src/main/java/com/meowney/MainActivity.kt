@@ -2,6 +2,7 @@ package com.meowney
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
@@ -65,6 +66,25 @@ class MainActivity : AppCompatActivity() {
                 else -> fab.hide()
             }
         }
-        // TODO: onPause, onResume privacy mode
+    }
+
+    // hides app content from recents based on user preference
+    override fun onPause() {
+        super.onPause()
+
+        runBlocking {
+            val privacyMode = settingsDataStore.privacyMode.first()
+            if (privacyMode) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
+            } else {
+                window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
 }
