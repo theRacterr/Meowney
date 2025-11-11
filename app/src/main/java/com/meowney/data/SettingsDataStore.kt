@@ -15,6 +15,7 @@ class SettingsDataStore(context: Context) {
 
     companion object {
         val THEME_OVERLAY_KEY = intPreferencesKey("themeOverlay")
+        val NIGHT_MODE_KEY = intPreferencesKey("nightMode")
     }
 
     val themeOverlay: Flow<Int> = appContext.dataStore.data.map { preferences ->
@@ -24,6 +25,16 @@ class SettingsDataStore(context: Context) {
     suspend fun saveThemeOverlay(overlayId: Int) {
         appContext.dataStore.edit { preferences ->
             preferences[THEME_OVERLAY_KEY] = overlayId
+        }
+    }
+
+    val nightMode: Flow<Int> = appContext.dataStore.data.map { preferences ->
+        preferences[NIGHT_MODE_KEY] ?: 0
+    }
+
+    suspend fun saveNightMode(nightMode: Int) {
+        appContext.dataStore.edit { preferences ->
+            preferences[NIGHT_MODE_KEY] = nightMode
         }
     }
 }

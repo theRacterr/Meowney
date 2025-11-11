@@ -5,13 +5,11 @@ import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.meowney.data.SettingsDataStore
 import com.meowney.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
@@ -32,11 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        // TODO: migrate to datastore
         // applying saved night mode
-        val sharedPref = getSharedPreferences("MeowneyPrefs", MODE_PRIVATE)
-        val nightMode = sharedPref.getInt("night_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-        AppCompatDelegate.setDefaultNightMode(nightMode)
+        runBlocking {
+            val nightMode = settingsDataStore.nightMode.first()
+            AppCompatDelegate.setDefaultNightMode(nightMode)
+        }
 
         // inflating layout
         binding = ActivityMainBinding.inflate(layoutInflater)

@@ -1,6 +1,5 @@
 package com.meowney.ui.more
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +11,14 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.meowney.R
 import com.meowney.databinding.FragmentMoreBinding
-import androidx.core.content.edit
+import com.meowney.data.SettingsDataStore
+import kotlinx.coroutines.runBlocking
 
 
 class MoreFragment : Fragment() {
     private var _binding: FragmentMoreBinding? = null
     private val binding get() = _binding!!
+    private val settingsDataStore by lazy { SettingsDataStore(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,29 +76,26 @@ class MoreFragment : Fragment() {
             .show()
     }
 
-    // TODO: migrate to datastore
     private fun showColorModeDialog() {
+
         val colorModes = resources.getStringArray(R.array.color_mode_options)
         val colorModeValues = arrayOf(AppCompatDelegate.MODE_NIGHT_NO, AppCompatDelegate.MODE_NIGHT_YES, AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-
-        val sharedPref = requireActivity().getSharedPreferences("MeowneyPrefs", Context.MODE_PRIVATE)
-        val currentNightMode = sharedPref.getInt("night_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        val currentNightMode = AppCompatDelegate.getDefaultNightMode()
         var checkedItem = colorModeValues.indexOf(currentNightMode)
-
+        if (checkedItem == -1) {
+            checkedItem = 2
+        }
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.dialog_color_mode)
             .setSingleChoiceItems(colorModes, checkedItem) { _, which ->
                 checkedItem = which
-            }
-            .setPositiveButton(R.string.dialog_confirm) { dialog, _ ->
-                val selectedMode = colorModeValues[checkedItem]
-
-                sharedPref.edit { putInt("night_mode", selectedMode) }
-
-                AppCompatDelegate.setDefaultNightMode(selectedMode)
+            }.setPositiveButton(R.string.dialog_confirm) { dialog, _ ->
+                val selectedNightMode = colorModeValues[checkedItem]
+                AppCompatDelegate.setDefaultNightMode(selectedNightMode)
+                runBlocking {
+                    settingsDataStore.saveNightMode(selectedNightMode)
+                }
                 dialog.dismiss()
-            }
-            .setNegativeButton(R.string.dialog_cancel, null)
-            .show()
+            }.setNegativeButton(R.string.dialog_cancel, null).show()
     }
 }
