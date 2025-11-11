@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_navigation_more_to_themingFragment"
             app:destination="@id/themingFragment" />
+        <action
+            android:id="@+id/action_navigation_more_to_privacyFragment"
+            app:destination="@id/privacyFragment" />
     </fragment>
 
     <fragment
@@ -51,4 +54,9 @@
         android:name="com.meowney.ui.entries.AddEntryFragment"
         android:label="@string/title_add_entry"
         tools:layout="@layout/fragment_add_entry" />
+    <fragment
+        android:id="@+id/privacyFragment"
+        android:name="com.meowney.ui.more.PrivacyFragment"
+        android:label="fragment_privacy"
+        tools:layout="@layout/fragment_privacy" />
 </navigation>

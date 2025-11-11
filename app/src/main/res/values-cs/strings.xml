@@ -27,4 +27,5 @@
     <string name="entries_income">Příjem</string>
     <string name="entries_expense">Výdaj</string>
     <string name="entries_transfer">Převod</string>
+    <string name="title_privacy">Soukromý</string>
 </resources>

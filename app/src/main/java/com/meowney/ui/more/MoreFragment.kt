@@ -41,7 +41,9 @@ class MoreFragment : Fragment() {
         binding.rowAbout.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_more_to_aboutFragment)
         }
-        // TODO: privacy row -> privacy fragment
+        binding.rowPrivacy.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_more_to_privacyFragment)
+        }
         return view
     }
 
