@@ -25,5 +25,8 @@ interface GeneralTransactionDao {
     @Query("SELECT * FROM generaltransaction LIMIT 30")
     suspend fun getThirty(): List<GeneralTransaction>
 
+    @Query("SELECT * FROM generaltransaction WHERE id = :id")
+    suspend fun getById(id: Int): GeneralTransaction
+
     // TODO: further queries
 }

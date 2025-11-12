@@ -4,8 +4,10 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
 import com.meowney.data.db.entities.TransactionCategory
+import com.meowney.data.db.relations.CategoryWithTransactions
 
 @Dao
 interface TransactionCategoryDao {
@@ -23,4 +25,8 @@ interface TransactionCategoryDao {
 
     @Query("SELECT * FROM transactioncategory WHERE name = :name")
     suspend fun getByName(name: String): TransactionCategory?
+
+    @Transaction
+    @Query("SELECT * FROM transactioncategory WHERE id = :id")
+    suspend fun getCategoryWithTransactions(id: Int): CategoryWithTransactions
 }

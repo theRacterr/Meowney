@@ -4,8 +4,10 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Update
 import com.meowney.data.db.entities.Account
+import com.meowney.data.db.relations.AccountWithTransactions
 
 @Dao
 interface AccountDao {
@@ -29,4 +31,9 @@ interface AccountDao {
 
     @Query("UPDATE account SET balance = balance + :amount WHERE id = :id")
     suspend fun updateBalance(id: Int, amount: Double)
+
+    @Transaction
+    @Query("SELECT * FROM account WHERE id = :id")
+    suspend fun getAccountWithTransactions(id: Int): AccountWithTransactions
+
 }
