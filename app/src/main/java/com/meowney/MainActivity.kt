@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+         // needs to stay before applying night mode, so the
+         // night mode is properly applied on app restart
+        super.onCreate(savedInstanceState)
+
         // applying saved night mode
         runBlocking {
             val nightMode = settingsDataStore.nightMode.first()
@@ -35,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         // inflating layout
-        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
