@@ -11,8 +11,8 @@
         android:label="@string/title_entries"
         tools:layout="@layout/fragment_entries" >
         <action
-            android:id="@+id/action_navigation_entries_to_addEntryFragment"
-            app:destination="@id/addEntryFragment" />
+            android:id="@+id/action_navigation_entries_to_navigation_add_entry"
+            app:destination="@id/navigation_add_entry" />
     </fragment>
 
     <fragment
@@ -27,35 +27,36 @@
         android:label="@string/title_more"
         tools:layout="@layout/fragment_more" >
         <action
-            android:id="@+id/action_navigation_more_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
+            android:id="@+id/action_navigation_more_to_navigation_about"
+            app:destination="@id/navigation_about" />
         <action
-            android:id="@+id/action_navigation_more_to_themingFragment"
-            app:destination="@id/themingFragment" />
+            android:id="@+id/action_navigation_more_to_navigation_theming"
+            app:destination="@id/navigation_theming" />
         <action
-            android:id="@+id/action_navigation_more_to_privacyFragment"
-            app:destination="@id/privacyFragment" />
+            android:id="@+id/action_navigation_more_to_navigation_privacy"
+            app:destination="@id/navigation_privacy" />
     </fragment>
 
     <fragment
-        android:id="@+id/aboutFragment"
+        android:id="@+id/navigation_about"
         android:name="com.meowney.ui.more.AboutFragment"
         android:label="@string/title_about"
         tools:layout="@layout/fragment_about" />
 
     <fragment
-        android:id="@+id/themingFragment"
+        android:id="@+id/navigation_theming"
         android:name="com.meowney.ui.more.ThemingFragment"
         android:label="@string/title_app_colors"
         tools:layout="@layout/fragment_theming" />
 
     <fragment
-        android:id="@+id/addEntryFragment"
+        android:id="@+id/navigation_add_entry"
         android:name="com.meowney.ui.entries.AddEntryFragment"
         android:label="@string/title_add_entry"
         tools:layout="@layout/fragment_add_entry" />
+
     <fragment
-        android:id="@+id/privacyFragment"
+        android:id="@+id/navigation_privacy"
         android:name="com.meowney.ui.more.PrivacyFragment"
         android:label="fragment_privacy"
         tools:layout="@layout/fragment_privacy" />

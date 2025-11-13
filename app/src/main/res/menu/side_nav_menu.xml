@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/group_main_screens">
+        <item
+            android:id="@+id/navigation_entries"
+            android:title="@string/title_entries"
+            android:icon="@drawable/ic_script_text_black_24dp"/>
+        <item
+            android:id="@+id/navigation_stats"
+            android:title="@string/title_stats"
+            android:icon="@drawable/ic_chart_line_black_24dp"/>
+    </group>
+    <group android:id="@+id/group_settings">
+        <item
+            android:id="@+id/navigation_more"
+            android:title="@string/title_more"
+            android:icon="@drawable/ic_more_black_24dp"/>
+        <item
+            android:id="@+id/navigation_theming"
+            android:title="@string/title_app_colors"
+            android:icon="@drawable/ic_palette_black_24dp"/>
+        <item
+            android:id="@+id/navigation_privacy"
+            android:title="@string/title_privacy"
+            android:icon="@drawable/ic_eye_black_24dp"/>
+        <item
+            android:id="@+id/navigation_about"
+            android:title="@string/title_about"
+            android:icon="@drawable/ic_about_black_24dp"/>
+    </group>
+</menu>

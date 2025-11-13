@@ -36,14 +36,14 @@ class MoreFragment : Fragment() {
         }
 
         binding.rowAppColors.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_more_to_themingFragment)
+            findNavController().navigate(R.id.action_navigation_more_to_navigation_theming)
         }
 
         binding.rowAbout.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_more_to_aboutFragment)
+            findNavController().navigate(R.id.action_navigation_more_to_navigation_about)
         }
         binding.rowPrivacy.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_more_to_privacyFragment)
+            findNavController().navigate(R.id.action_navigation_more_to_navigation_privacy)
         }
         return view
     }

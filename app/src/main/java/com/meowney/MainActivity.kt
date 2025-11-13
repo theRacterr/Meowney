@@ -5,8 +5,12 @@ import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
 import com.meowney.data.SettingsDataStore
 import com.meowney.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.first
@@ -16,6 +20,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var settingsDataStore: SettingsDataStore
+    // side thingy
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navViewSide: NavigationView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         settingsDataStore = SettingsDataStore(this)
@@ -56,6 +64,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // handling side nav drawer
+        drawerLayout = binding.drawerLayout
+        navViewSide = binding.navViewSide
+
+        navViewSide.setNavigationItemSelectedListener { menuItem ->
+            val navigated = NavigationUI.onNavDestinationSelected(menuItem, navController)
+            if (navigated) {
+                drawerLayout.closeDrawer(GravityCompat.END)
+            }
+            navigated
+        }
+
         // handling fab
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val fab = binding.fab
@@ -63,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_entries -> {
                     fab.show()
                     fab.setOnClickListener {
-                        navController.navigate(R.id.action_navigation_entries_to_addEntryFragment)
+                        navController.navigate(R.id.action_navigation_entries_to_navigation_add_entry)
                     }
                 }
                 else -> fab.hide()
