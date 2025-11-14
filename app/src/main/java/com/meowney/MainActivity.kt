@@ -5,12 +5,8 @@ import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
 import com.meowney.data.SettingsDataStore
 import com.meowney.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.first
@@ -20,10 +16,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var settingsDataStore: SettingsDataStore
-    // side thingy
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var navViewSide: NavigationView
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         settingsDataStore = SettingsDataStore(this)
@@ -50,30 +42,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // handling navbar
+        // handling navigation
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        binding.navView.setupWithNavController(navController)
+        binding.navViewSide.setupWithNavController(navController)
+        binding.navViewBottom.setupWithNavController(navController)
 
+        // bottom nav bar visibility
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            val bottomNavigationView = binding.navView
+            val bottomNavigationView = binding.navViewBottom
             when (destination.id) {
                 R.id.navigation_entries -> bottomNavigationView.visibility = View.VISIBLE
                 R.id.navigation_stats -> bottomNavigationView.visibility = View.VISIBLE
                 R.id.navigation_more -> bottomNavigationView.visibility = View.VISIBLE
                 else -> bottomNavigationView.visibility = View.GONE
             }
-        }
-
-        // handling side nav drawer
-        drawerLayout = binding.drawerLayout
-        navViewSide = binding.navViewSide
-
-        navViewSide.setNavigationItemSelectedListener { menuItem ->
-            val navigated = NavigationUI.onNavDestinationSelected(menuItem, navController)
-            if (navigated) {
-                drawerLayout.closeDrawer(GravityCompat.END)
-            }
-            navigated
         }
 
         // handling fab

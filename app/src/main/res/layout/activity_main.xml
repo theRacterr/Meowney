@@ -13,7 +13,7 @@
         android:fitsSystemWindows="true">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/nav_view"
+            android:id="@+id/nav_view_bottom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
@@ -35,7 +35,7 @@
             android:layout_marginRight="24dp"
             android:background="?android:attr/listDivider"
             android:backgroundTint="?attr/toolbarElementColor"
-            app:layout_constraintBottom_toTopOf="@id/nav_view"
+            app:layout_constraintBottom_toTopOf="@id/nav_view_bottom"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
@@ -49,7 +49,7 @@
             android:contentDescription="@string/fab_content_description"
             android:src="@drawable/ic_plus_black_24dp"
             app:borderWidth="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:tint="?attr/colorOnPrimary" />
 
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@id/nav_view"
+            app:layout_constraintBottom_toTopOf="@id/nav_view_bottom"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -71,7 +71,7 @@
         android:id="@+id/nav_view_side"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="end"
+        android:layout_gravity="start"
         app:headerLayout="@layout/header_drawer_nav"
         app:menu="@menu/side_nav_menu"/>
 

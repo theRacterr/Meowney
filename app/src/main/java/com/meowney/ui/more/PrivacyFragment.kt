@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.meowney.R
 import com.meowney.data.SettingsDataStore
 import com.meowney.databinding.FragmentPrivacyBinding
 import kotlinx.coroutines.flow.first
@@ -27,7 +28,7 @@ class PrivacyFragment : Fragment() {
         val view = binding.root
 
         binding.privacyToolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.navigation_more)
         }
 
         runBlocking {

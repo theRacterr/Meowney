@@ -23,7 +23,7 @@ class AboutFragment : Fragment() {
         val view = binding.root
 
         binding.aboutToolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
+            findNavController().navigate(R.id.navigation_more)
         }
 
         // passing about string as HTML for formatting
