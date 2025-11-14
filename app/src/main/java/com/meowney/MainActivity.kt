@@ -92,4 +92,9 @@ class MainActivity : AppCompatActivity() {
 
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
     }
+
+    // allows fragments to open the navigation drawer
+    fun openDrawer() {
+        binding.drawerLayout.open()
+    }
 }

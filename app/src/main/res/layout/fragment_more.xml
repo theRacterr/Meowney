@@ -15,7 +15,9 @@
         android:background="?attr/toolbarColor"
         app:title="@string/title_more"
         app:titleTextColor="?attr/toolbarElementColor"
-        app:titleCentered="true" />
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_list_bulleted_black_24dp"
+        app:navigationIconTint="?attr/toolbarElementColor" />
 
     <View
         android:id="@+id/divider"

@@ -21,6 +21,9 @@
         <item name="toolbarColor">@color/white</item>
         <item name="toolbarElementColor">@color/black</item>
 
+        <!-- Nav bars colors. -->
+        <item name="unselectedColor">@color/grey_600</item>
+
         <!-- Profit and deficit colors. -->
         <item name="profitColor">@color/green_profit</item>
         <item name="deficitColor">@color/red_deficit</item>

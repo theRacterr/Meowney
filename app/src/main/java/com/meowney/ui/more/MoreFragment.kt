@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.meowney.MainActivity
 import com.meowney.R
 import com.meowney.databinding.FragmentMoreBinding
 import com.meowney.data.SettingsDataStore
@@ -26,6 +27,10 @@ class MoreFragment : Fragment() {
     ): View? {
         _binding = FragmentMoreBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.moreToolbar.setNavigationOnClickListener {
+            (activity as MainActivity).openDrawer()
+        }
 
         binding.rowLanguage.setOnClickListener {
             showLanguageDialog()

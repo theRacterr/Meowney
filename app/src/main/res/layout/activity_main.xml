@@ -20,8 +20,8 @@
             android:layout_marginEnd="0dp"
             android:background="?android:attr/windowBackground"
             app:backgroundTint="?attr/toolbarColor"
-            app:itemIconTint="@color/bottom_nav_item_color"
-            app:itemTextColor="@color/bottom_nav_item_color"
+            app:itemIconTint="@color/nav_item_color"
+            app:itemTextColor="@color/nav_item_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -73,6 +73,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/header_drawer_nav"
-        app:menu="@menu/side_nav_menu"/>
+        app:menu="@menu/side_nav_menu"
+        app:itemTextColor="@color/nav_item_color"
+        app:itemIconTint="@color/nav_item_color"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

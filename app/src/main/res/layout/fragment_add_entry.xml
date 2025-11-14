@@ -114,7 +114,8 @@
                     android:inputType="numberDecimal"
                     android:text="0.0"
                     android:textSize="64sp"
-                    android:textAlignment="textEnd"/>
+                    android:textAlignment="textEnd"
+                    android:textColor="?attr/colorOnPrimary"/>
             </LinearLayout>
 
             <!--

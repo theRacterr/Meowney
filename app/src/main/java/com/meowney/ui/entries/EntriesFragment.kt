@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.meowney.MainActivity
 import com.meowney.databinding.FragmentEntriesBinding
 
 
@@ -19,6 +20,10 @@ class EntriesFragment : Fragment() {
     ): View? {
         _binding = FragmentEntriesBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.entriesToolbar.setNavigationOnClickListener {
+            (activity as MainActivity).openDrawer()
+        }
 
         return view
     }

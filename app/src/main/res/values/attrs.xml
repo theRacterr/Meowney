@@ -6,4 +6,7 @@
     <!-- Toolbar colors. -->
     <attr name="toolbarColor" format="color" />
     <attr name="toolbarElementColor" format="color" />
+
+    <!-- nav bars color -->
+    <attr name="unselectedColor" format="color" />
 </resources>
