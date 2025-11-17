@@ -1,9 +1,9 @@
-package com.meowney.data.db.relations
+package com.meowney.data.database.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.meowney.data.db.entities.Account
-import com.meowney.data.db.entities.GeneralTransaction
+import com.meowney.data.database.entities.Account
+import com.meowney.data.database.entities.GeneralTransaction
 
 data class AccountWithTransactions (
     @Embedded val account: Account,

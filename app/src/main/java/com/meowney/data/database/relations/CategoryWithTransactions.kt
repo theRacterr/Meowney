@@ -1,9 +1,9 @@
-package com.meowney.data.db.relations
+package com.meowney.data.database.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.meowney.data.db.entities.GeneralTransaction
-import com.meowney.data.db.entities.TransactionCategory
+import com.meowney.data.database.entities.GeneralTransaction
+import com.meowney.data.database.entities.TransactionCategory
 
 data class CategoryWithTransactions(
     @Embedded val category: TransactionCategory,

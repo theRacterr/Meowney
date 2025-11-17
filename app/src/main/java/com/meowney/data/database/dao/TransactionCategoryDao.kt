@@ -1,4 +1,4 @@
-package com.meowney.data.db.dao
+package com.meowney.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
-import com.meowney.data.db.entities.TransactionCategory
-import com.meowney.data.db.relations.CategoryWithTransactions
+import com.meowney.data.database.entities.TransactionCategory
+import com.meowney.data.database.relations.CategoryWithTransactions
 
 @Dao
 interface TransactionCategoryDao {

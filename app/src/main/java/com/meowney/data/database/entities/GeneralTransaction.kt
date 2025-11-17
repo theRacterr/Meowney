@@ -1,4 +1,4 @@
-package com.meowney.data.db.entities
+package com.meowney.data.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

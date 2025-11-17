@@ -1,4 +1,4 @@
-package com.meowney.data.db
+package com.meowney.data.database
 
 import android.content.Context
 import androidx.room.Room

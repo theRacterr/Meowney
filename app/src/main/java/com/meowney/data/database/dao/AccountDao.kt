@@ -1,4 +1,4 @@
-package com.meowney.data.db.dao
+package com.meowney.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
-import com.meowney.data.db.entities.Account
-import com.meowney.data.db.relations.AccountWithTransactions
+import com.meowney.data.database.entities.Account
+import com.meowney.data.database.relations.AccountWithTransactions
 
 @Dao
 interface AccountDao {
