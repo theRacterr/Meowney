@@ -14,7 +14,7 @@
             android:id="@+id/action_navigation_entries_to_navigation_add_entry"
             app:destination="@id/navigation_add_entry"
             app:popUpTo="@id/navigation_entries"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -32,17 +32,17 @@
             android:id="@+id/action_navigation_more_to_navigation_about"
             app:destination="@id/navigation_about"
             app:popUpTo="@id/navigation_more"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_navigation_more_to_navigation_theming"
             app:destination="@id/navigation_theming"
             app:popUpTo="@id/navigation_more"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_navigation_more_to_navigation_privacy"
             app:destination="@id/navigation_privacy"
             app:popUpTo="@id/navigation_more"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment

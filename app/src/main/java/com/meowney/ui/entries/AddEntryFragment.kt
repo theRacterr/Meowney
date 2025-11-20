@@ -27,7 +27,7 @@ class AddEntryFragment : Fragment() {
         val view = binding.root
 
         binding.addEntryToolbar.setNavigationOnClickListener {
-            findNavController().navigate(R.id.navigation_entries)
+            findNavController().popBackStack()
         }
 
         binding.radioGroupType.setOnCheckedChangeListener { _, checkedId ->

@@ -31,7 +31,7 @@ class ThemingFragment : Fragment() {
 
         // toolbar
         binding.themingToolbar.setNavigationOnClickListener {
-            findNavController().navigate(R.id.navigation_more)
+            findNavController().popBackStack()
         }
 
         // theme colors grid
