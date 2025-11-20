@@ -30,4 +30,5 @@
     <string name="title_privacy">Soukromý</string>
     <string name="privacy_hide_recents">Schovat obsah aplikace?</string>
     <string name="navigation">Navigace</string>
+    <string name="entries_description">Popis</string>
 </resources>
