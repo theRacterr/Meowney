@@ -27,14 +27,14 @@
         android:background="?android:attr/listDivider"
         android:backgroundTint="?attr/toolbarElementColor" />
 
-    <androidx.appcompat.widget.SwitchCompat
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/privacySwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:padding="12dp"
         android:paddingEnd="30dp"
         android:text="@string/privacy_hide_recents"
-        android:textSize="18sp"
-        app:trackTint="@color/toggle_button_color"/>
+        android:textSize="18sp" />
 
 </LinearLayout>
