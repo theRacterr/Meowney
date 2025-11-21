@@ -54,7 +54,7 @@
                     android:textAllCaps="true"
                     android:autoSizeTextType="uniform"
                     android:textColor="?attr/colorOnPrimary"
-                    android:background="@color/radio_button_color"
+                    android:background="@color/toggle_button_color"
                     android:button="@null"
                     android:checked="true" />
 
@@ -68,7 +68,7 @@
                     android:layout_marginHorizontal="1dp"
                     android:text="@string/entries_expense"
                     android:textColor="?attr/colorOnPrimary"
-                    android:background="@color/radio_button_color"
+                    android:background="@color/toggle_button_color"
                     android:textAllCaps="true"
                     android:autoSizeTextType="uniform"
                     android:button="@null" />
@@ -82,7 +82,7 @@
                     android:paddingVertical="16dp"
                     android:text="@string/entries_transfer"
                     android:textColor="?attr/colorOnPrimary"
-                    android:background="@color/radio_button_color"
+                    android:background="@color/toggle_button_color"
                     android:textAllCaps="true"
                     android:autoSizeTextType="uniform"
                     android:button="@null" />

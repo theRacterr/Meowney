@@ -34,6 +34,7 @@
         android:padding="12dp"
         android:paddingEnd="30dp"
         android:text="@string/privacy_hide_recents"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:trackTint="@color/toggle_button_color"/>
 
 </LinearLayout>
