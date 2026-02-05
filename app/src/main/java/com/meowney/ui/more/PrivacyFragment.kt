@@ -30,16 +30,6 @@ class PrivacyFragment : Fragment() {
             findNavController().popBackStack()
         }
 
-        runBlocking {
-            binding.privacySwitch.isChecked = settingsDataStore.privacyMode.first()
-        }
-
-        binding.privacySwitch.setOnCheckedChangeListener { _, isChecked ->
-            runBlocking {
-                settingsDataStore.savePrivacyMode(isChecked)
-            }
-        }
-
         return view
     }
 
