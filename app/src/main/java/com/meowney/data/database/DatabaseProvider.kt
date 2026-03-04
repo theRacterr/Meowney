@@ -2,6 +2,11 @@ package com.meowney.data.database
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 object DatabaseProvider {
     @Volatile
@@ -13,7 +18,9 @@ object DatabaseProvider {
                 context.applicationContext,
                 AppDatabase::class.java,
                 "meowney_database"
-            ).build()
+            )
+            .createFromAsset("database/meowney_database.db")
+            .build()
             INSTANCE = instance
             instance
         }
