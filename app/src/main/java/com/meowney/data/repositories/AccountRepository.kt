@@ -30,6 +30,10 @@ class AccountRepository(private val dao: AccountDao) {
         return dao.getByName(name)
     }
 
+    suspend fun getNameById(id: Int): String {
+        return dao.getNameById(id)
+    }
+
     suspend fun getAccountWithTransactions(id: Int): AccountWithTransactions {
         return dao.getAccountWithTransactions(id)
     }
