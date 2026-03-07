@@ -30,10 +30,6 @@ class AccountRepository(private val dao: AccountDao) {
         return dao.getByName(name)
     }
 
-    suspend fun updateAccountBalance(id: Int, amount: Double) {
-        dao.updateBalance(id, amount)
-    }
-
     suspend fun getAccountWithTransactions(id: Int): AccountWithTransactions {
         return dao.getAccountWithTransactions(id)
     }

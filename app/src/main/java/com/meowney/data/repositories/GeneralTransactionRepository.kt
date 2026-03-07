@@ -21,11 +21,19 @@ class GeneralTransactionRepository(private val dao: GeneralTransactionDao) {
         return dao.getAll()
     }
 
+    suspend fun getSumOfAll(): Double? {
+        return dao.getSumOfAll()
+    }
+
     suspend fun getTransactionById(id: Int): GeneralTransaction {
         return dao.getById(id)
     }
 
-    suspend fun getThirtyTransactions(): List<GeneralTransaction> {
-        return dao.getThirty()
+    suspend fun getAllTransactionsByAccountId(accountId: Int): List<GeneralTransaction> {
+        return dao.getAllByAccountId(accountId)
+    }
+
+    suspend fun getSumByAccountId(accountId: Int): Double? {
+        return dao.getSumByAccountId(accountId)
     }
 }
