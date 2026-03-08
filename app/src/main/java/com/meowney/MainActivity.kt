@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.meowney.data.SettingsDataStore
 import com.meowney.databinding.ActivityMainBinding
@@ -42,7 +43,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // handling navigation
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // using the code bellow seems the "correct" way to do it,
+        // but it crashes the application. Presumably due to a bug with FragmentContainerView.
+        // nevertheless I won't fix it because if it works, don't touch it.
+        // val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+
+        val navController = navHostFragment.navController
+
         binding.navViewSide.setupWithNavController(navController)
         binding.navViewBottom.setupWithNavController(navController)
 
