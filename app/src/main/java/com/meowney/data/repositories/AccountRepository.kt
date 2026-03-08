@@ -22,6 +22,11 @@ class AccountRepository(private val dao: AccountDao) {
         return dao.getAll()
     }
 
+    suspend fun getAllAccountNames(): Array<String> {
+        return dao.getAllAccountNames()
+    }
+
+
     suspend fun getAccountById(id: Int): Account {
         return dao.getById(id)
     }

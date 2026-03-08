@@ -23,6 +23,9 @@ interface AccountDao {
     @Query("SELECT * FROM account")
     suspend fun getAll(): List<Account>
 
+    @Query("SELECT name FROM account")
+    suspend fun getAllAccountNames(): Array<String>
+
     @Query("SELECT * FROM account WHERE id = :id")
     suspend fun getById(id: Int): Account
 

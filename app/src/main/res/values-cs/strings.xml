@@ -30,4 +30,5 @@
     <string name="about_credits_title">Notace</string>
     <string name="about_credits_text">Některé ikony byly poskytnuté www.freepik.com</string>
     <string name="all_accounts">Všechny účty</string>
+    <string name="select_account">Vyberte účet</string>
 </resources>

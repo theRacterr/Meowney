@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.meowney.MainActivity
 import com.meowney.R
 import com.meowney.data.database.DatabaseProvider
@@ -45,6 +46,40 @@ class EntriesFragment : Fragment() {
         val categoryRepository = TransactionCategoryRepository(db.transactionCategoryDao())
         val accountRepository = AccountRepository(db.accountDao())
 
+        reloadEntries(viewModel, transactionRepository, categoryRepository, accountRepository)
+
+        binding.accountName.setOnClickListener {
+            lifecycleScope.launch {
+                showAccountDialog(accountRepository.getAllAccountNames(), onAccountSelected = { selectedAccount ->
+                    viewModel.setSelectedAccount(selectedAccount)
+                    reloadEntries(viewModel, transactionRepository, categoryRepository, accountRepository)
+                })
+            }
+        }
+
+        return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun showAccountDialog(accountNames: Array<String>, onAccountSelected: (Int) -> Unit) {
+
+        val accountOptions = arrayOf(getString(R.string.all_accounts)) + accountNames
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.select_account)
+            .setItems(accountOptions) { dialog, which ->
+                onAccountSelected(which)
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    // TODO: move to viewModel for performance
+    private fun reloadEntries(viewModel: EntriesViewModel, transactionRepository: GeneralTransactionRepository, categoryRepository: TransactionCategoryRepository, accountRepository: AccountRepository) {
         lifecycleScope.launch {
             // TODO: limit and re query when scrolling for better performance
 
@@ -72,12 +107,5 @@ class EntriesFragment : Fragment() {
             val adapter = EntriesAdapter(transactions, categories)
             binding.entriesRecyclerView.adapter = adapter
         }
-
-        return view
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

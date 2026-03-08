@@ -31,4 +31,5 @@
     <string name="about_credits_title">Credits</string>
     <string name="about_credits_text">Some icons have been provided by www.freepik.com</string>
     <string name="all_accounts">All Accounts</string>
+    <string name="select_account">Select an account</string>
 </resources>
