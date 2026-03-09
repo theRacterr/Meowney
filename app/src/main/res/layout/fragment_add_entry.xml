@@ -92,7 +92,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:background="?attr/colorPrimary"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -131,7 +130,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
                 android:padding="8dp"
-                android:background="?attr/colorPrimary"
                 android:inputType="textMultiLine"
                 android:hint="@string/entries_description" />
 
