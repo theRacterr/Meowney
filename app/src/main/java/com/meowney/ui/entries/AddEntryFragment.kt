@@ -41,9 +41,6 @@ class AddEntryFragment : Fragment() {
                     binding.imagePosNeg.setImageResource(R.drawable.ic_minus_black_24dp)
                     colorAttr = R.attr.deficitColor
                 }
-                R.id.radioTransfer -> {
-                    binding.imagePosNeg.setImageResource(R.drawable.ic_tilde_black_24dp)
-                }
             }
             val color = MaterialColors.getColor(requireContext(), colorAttr, ContextCompat.getColor(requireContext(), R.color.black))
             ImageViewCompat.setImageTintList(binding.imagePosNeg, ColorStateList.valueOf(color))
