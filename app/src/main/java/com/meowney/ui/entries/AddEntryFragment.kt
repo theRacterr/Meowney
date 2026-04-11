@@ -8,10 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.color.MaterialColors
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.meowney.R
+import com.meowney.data.database.DatabaseProvider
+import com.meowney.data.repositories.AccountRepository
+import com.meowney.data.repositories.GeneralTransactionRepository
+import com.meowney.data.repositories.TransactionCategoryRepository
 import com.meowney.databinding.FragmentAddEntryBinding
+import kotlinx.coroutines.launch
+import kotlin.getValue
 
 
 class AddEntryFragment : Fragment() {
@@ -25,6 +34,22 @@ class AddEntryFragment : Fragment() {
     ): View? {
         _binding = FragmentAddEntryBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        val viewModel: AddEntryViewModel by viewModels()
+
+        // TODO: move to viewModel for performance
+        val db = DatabaseProvider.getDatabase(requireContext())
+        val categoryRepository = TransactionCategoryRepository(db.transactionCategoryDao())
+        val accountRepository = AccountRepository(db.accountDao())
+
+        // setting the default account
+        viewModel.setSelectedAccount(1)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.selectedAccount.collect { accountId ->
+                val name = accountRepository.getNameById(accountId)
+                binding.accountSelector.text = name
+            }
+        }
 
         binding.addEntryToolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
@@ -45,11 +70,33 @@ class AddEntryFragment : Fragment() {
             val color = MaterialColors.getColor(requireContext(), colorAttr, ContextCompat.getColor(requireContext(), R.color.black))
             ImageViewCompat.setImageTintList(binding.imagePosNeg, ColorStateList.valueOf(color))
         }
+
+        binding.accountSelector.setOnClickListener {
+            lifecycleScope.launch {
+                changeAccountDialog(accountRepository.getAllAccountNames(),
+                    onAccountSelected = {
+                        viewModel.setSelectedAccount(it+1)
+                })
+            }
+        }
+
         return view
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun changeAccountDialog(accountNames: Array<String>, onAccountSelected: (Int) -> Unit) {
+        val accountOptions = accountNames
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.select_account)
+            .setItems(accountOptions) { dialog, which ->
+                onAccountSelected(which)
+                dialog.dismiss()
+            }
+            .show()
     }
 }
