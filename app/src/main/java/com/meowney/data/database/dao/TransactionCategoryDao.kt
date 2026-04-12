@@ -23,8 +23,14 @@ interface TransactionCategoryDao {
     @Query("SELECT * FROM transactioncategory")
     suspend fun getAll(): List<TransactionCategory>
 
+    @Query("SELECT name FROM transactioncategory")
+    suspend fun getAllCategoryNames(): Array<String>
+
     @Query("SELECT * FROM transactioncategory WHERE name = :name")
     suspend fun getByName(name: String): TransactionCategory?
+
+    @Query("SELECT * FROM transactioncategory WHERE id = :id")
+    suspend fun getById(id: Int): TransactionCategory
 
     @Transaction
     @Query("SELECT * FROM transactioncategory WHERE id = :id")

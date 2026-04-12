@@ -21,12 +21,20 @@ class TransactionCategoryRepository(private val dao: TransactionCategoryDao) {
         return dao.getAll()
     }
 
+    suspend fun getAllCategoryNames(): Array<String> {
+        return dao.getAllCategoryNames()
+    }
+
     suspend fun getCategoryByName(name: String): TransactionCategory? {
         return dao.getByName(name)
     }
 
     suspend fun getCategoryWithTransactions(id: Int): CategoryWithTransactions {
         return dao.getCategoryWithTransactions(id)
+    }
+
+    suspend fun getCategoryById(id: Int): TransactionCategory {
+        return dao.getById(id)
     }
 
 }

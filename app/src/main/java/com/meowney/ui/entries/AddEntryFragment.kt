@@ -42,12 +42,22 @@ class AddEntryFragment : Fragment() {
         val categoryRepository = TransactionCategoryRepository(db.transactionCategoryDao())
         val accountRepository = AccountRepository(db.accountDao())
 
-        // setting the default account
+        // setting the default account and category
         viewModel.setSelectedAccount(1)
+        viewModel.setSelectedCategory(1)
+
+        // updating GUI based on selected account and category
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.selectedAccount.collect { accountId ->
                 val name = accountRepository.getNameById(accountId)
                 binding.accountSelector.text = name
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.selectedCategory.collect { categoryId ->
+                val name = categoryRepository.getCategoryById(categoryId).name
+                binding.categorySelector.text = name
             }
         }
 
@@ -80,6 +90,15 @@ class AddEntryFragment : Fragment() {
             }
         }
 
+        binding.categorySelector.setOnClickListener {
+            lifecycleScope.launch {
+                changeCategoryDialog(categoryRepository.getAllCategoryNames(),
+                    onCategorySelected = {
+                        viewModel.setSelectedCategory(it + 1)
+                })
+            }
+        }
+
         return view
     }
 
@@ -95,6 +114,18 @@ class AddEntryFragment : Fragment() {
             .setTitle(R.string.select_account)
             .setItems(accountOptions) { dialog, which ->
                 onAccountSelected(which)
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun changeCategoryDialog(categoryNames: Array<String>, onCategorySelected: (Int) -> Unit) {
+        val categoryOptions = categoryNames
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.select_account)
+            .setItems(categoryOptions) { dialog, which ->
+                onCategorySelected(which)
                 dialog.dismiss()
             }
             .show()
