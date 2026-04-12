@@ -31,4 +31,7 @@
     <string name="about_credits_text">Některé ikony byly poskytnuté www.freepik.com</string>
     <string name="all_accounts">Všechny účty</string>
     <string name="select_account">Vyberte účet</string>
+    <string name="confirm">Potvrdit</string>
+    <string name="input_a_number">Prosím vložte číslo</string>
+    <string name="entry_name">Jméno transakce</string>
 </resources>

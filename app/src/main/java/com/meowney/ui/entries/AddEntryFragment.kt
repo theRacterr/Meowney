@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.viewModels
@@ -15,6 +16,7 @@ import com.google.android.material.color.MaterialColors
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.meowney.R
 import com.meowney.data.database.DatabaseProvider
+import com.meowney.data.database.entities.GeneralTransaction
 import com.meowney.data.repositories.AccountRepository
 import com.meowney.data.repositories.GeneralTransactionRepository
 import com.meowney.data.repositories.TransactionCategoryRepository
@@ -39,6 +41,7 @@ class AddEntryFragment : Fragment() {
 
         // TODO: move to viewModel for performance
         val db = DatabaseProvider.getDatabase(requireContext())
+        val transactionRepository = GeneralTransactionRepository(db.generalTransactionDao())
         val categoryRepository = TransactionCategoryRepository(db.transactionCategoryDao())
         val accountRepository = AccountRepository(db.accountDao())
 
@@ -98,6 +101,45 @@ class AddEntryFragment : Fragment() {
                 })
             }
         }
+
+        binding.confirmButton.setOnClickListener {
+
+            if (binding.editAmount.text.toString().isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.input_a_number,
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            lifecycleScope.launch {
+
+                val title = binding.editTitle.text.toString()
+                val description = binding.editDescription.text.toString()
+                var amount = binding.editAmount.text.toString().toDouble()
+                if (binding.radioGroupType.checkedRadioButtonId == R.id.radioExpense) {
+                    amount *= -1
+                }
+
+                transactionRepository.insertTransaction(
+                    GeneralTransaction(
+
+                        id = 0,
+                        accountId = viewModel.selectedAccount.value,
+                        categoryId = viewModel.selectedCategory.value,
+                        title = title,
+                        description = description,
+                        amount = amount,
+                        date = System.currentTimeMillis().toString()
+
+                    )
+                )
+
+                findNavController().popBackStack()
+            }
+        }
+
 
         return view
     }

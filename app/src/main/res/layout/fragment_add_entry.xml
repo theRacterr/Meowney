@@ -103,6 +103,15 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/editTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:padding="8dp"
+                android:inputType="text"
+                android:text="@string/entry_name"/>
+
+            <EditText
                 android:id="@+id/editDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,6 +154,14 @@
                     android:background="?attr/selectableItemBackground"/>
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/confirmButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:backgroundTint="?attr/colorPrimary"
+                android:text="@string/confirm" />
 
         </LinearLayout>
     </ScrollView>
