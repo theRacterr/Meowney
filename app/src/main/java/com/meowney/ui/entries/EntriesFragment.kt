@@ -104,7 +104,7 @@ class EntriesFragment : Fragment() {
 
             binding.accountBalance.text = totalBalance.toString()
 
-            val adapter = EntriesAdapter(transactions, categories)
+            val adapter = EntriesAdapter(transactions.reversed(), categories)
             binding.entriesRecyclerView.adapter = adapter
         }
     }
