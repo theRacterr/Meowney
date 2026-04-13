@@ -31,14 +31,7 @@
         android:layout_height="?attr/actionBarSize"
         android:orientation="horizontal"
         android:background="?attr/toolbarColor">
-
-        <!--
-        TODO: current account
-
-        click to change the current account. (dialog or expandable widget?)
-
-        -->
-
+        
         <TextView
             android:id="@+id/accountName"
             android:layout_width="0dp"
@@ -58,25 +51,6 @@
             android:textAppearance="?attr/textAppearanceTitleLarge"
             android:gravity="center_vertical" />
 
-        <!--
-        TODO: show filter options
-
-        Expandable widget?
-
-         -->
-
-        <View
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-            android:background="?android:attr/listDivider"
-            android:backgroundTint="?attr/toolbarElementColor"/>
-
-        <ImageView
-            android:id="@+id/filterIcon"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_more_vertical_24dp"
-            app:tint="?attr/toolbarElementColor" />
 
     </LinearLayout>
 
