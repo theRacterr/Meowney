@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.meowney.MainActivity
 import com.meowney.databinding.FragmentStatsBinding
 
@@ -20,6 +21,8 @@ class StatsFragment : Fragment() {
     ): View? {
         _binding = FragmentStatsBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        val viewModel: StatsViewModel by viewModels()
 
         binding.statsToolbar.setNavigationOnClickListener {
             (activity as MainActivity).openDrawer()
