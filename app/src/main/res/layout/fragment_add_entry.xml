@@ -109,16 +109,7 @@
                 android:layout_marginTop="1dp"
                 android:padding="8dp"
                 android:inputType="text"
-                android:text="@string/entry_name"/>
-
-            <EditText
-                android:id="@+id/editDescription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:padding="8dp"
-                android:inputType="textMultiLine"
-                android:hint="@string/entries_description" />
+                android:hint="@string/entry_name"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

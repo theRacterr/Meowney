@@ -45,6 +45,10 @@ class AddEntryFragment : Fragment() {
         val categoryRepository = TransactionCategoryRepository(db.transactionCategoryDao())
         val accountRepository = AccountRepository(db.accountDao())
 
+        binding.addEntryToolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+
         // updating GUI based on selected account and category
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.selectedAccount.collect { accountId ->
@@ -58,10 +62,6 @@ class AddEntryFragment : Fragment() {
                 val name = categoryRepository.getCategoryById(categoryId).name
                 binding.categorySelector.text = name
             }
-        }
-
-        binding.addEntryToolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
         }
 
         binding.radioGroupType.setOnCheckedChangeListener { _, checkedId ->
@@ -108,11 +108,18 @@ class AddEntryFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
+            if (binding.editTitle.text.toString().isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.input_a_title,
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
 
             lifecycleScope.launch {
 
                 val title = binding.editTitle.text.toString()
-                val description = binding.editDescription.text.toString()
                 var amount = binding.editAmount.text.toString().toDouble()
                 if (binding.radioGroupType.checkedRadioButtonId == R.id.radioExpense) {
                     amount *= -1
@@ -125,7 +132,7 @@ class AddEntryFragment : Fragment() {
                         accountId = viewModel.selectedAccount.value,
                         categoryId = viewModel.selectedCategory.value,
                         title = title,
-                        description = description,
+                        description = null,
                         amount = amount,
                         date = System.currentTimeMillis().toString()
 

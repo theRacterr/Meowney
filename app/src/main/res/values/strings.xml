@@ -37,4 +37,5 @@
     <string name="entry_name">Transaction title</string>
     <string name="entry_deleted">Entry deleted</string>
     <string name="undo">UNDO</string>
+    <string name="input_a_title">Please enter a title</string>
 </resources>
