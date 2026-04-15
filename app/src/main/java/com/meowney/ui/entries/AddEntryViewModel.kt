@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class AddEntryViewModel : ViewModel() {
 
-    private val _selectedAccount = MutableStateFlow(0)
+    private val _selectedAccount = MutableStateFlow(1)
 
     val selectedAccount: StateFlow<Int> get() = _selectedAccount.asStateFlow()
 
