@@ -45,5 +45,9 @@ class EntriesAdapter(
         return items.size
     }
 
+    fun getItemAt(position: Int): GeneralTransaction {
+        return items[position]
+    }
+
     class TransactionViewHolder(val binding: ItemEntriesEntryBinding) : RecyclerView.ViewHolder(binding.root)
 }

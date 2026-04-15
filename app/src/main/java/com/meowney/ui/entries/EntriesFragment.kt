@@ -48,6 +48,47 @@ class EntriesFragment : Fragment() {
 
         reloadEntries(viewModel, transactionRepository, categoryRepository, accountRepository)
 
+
+        // Handles deleting with a swipe
+        val swipeHandler = object : androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback(
+            0,
+            androidx.recyclerview.widget.ItemTouchHelper.LEFT or androidx.recyclerview.widget.ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: androidx.recyclerview.widget.RecyclerView,
+                viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder,
+                target: androidx.recyclerview.widget.RecyclerView.ViewHolder
+            ): Boolean = false
+
+            override fun onSwiped(viewHolder: androidx.recyclerview.widget.RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.bindingAdapterPosition
+                if (position == androidx.recyclerview.widget.RecyclerView.NO_POSITION) return
+
+                val adapter = binding.entriesRecyclerView.adapter as? EntriesAdapter ?: return
+                val transactionToDelete = adapter.getItemAt(position)
+
+                lifecycleScope.launch {
+                    transactionRepository.deleteTransaction(transactionToDelete)
+                    reloadEntries(viewModel, transactionRepository, categoryRepository, accountRepository)
+
+                    com.google.android.material.snackbar.Snackbar.make(
+                        binding.root,
+                        R.string.entry_deleted,
+                        com.google.android.material.snackbar.Snackbar.LENGTH_LONG
+                    ).setAction(R.string.undo) {
+                        lifecycleScope.launch {
+                            transactionRepository.insertTransaction(transactionToDelete)
+                            reloadEntries(viewModel, transactionRepository, categoryRepository, accountRepository)
+                        }
+                    }.show()
+                }
+            }
+        }
+
+        val itemTouchHelper = androidx.recyclerview.widget.ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(binding.entriesRecyclerView)
+
+        // handles account switching
         binding.accountName.setOnClickListener {
             lifecycleScope.launch {
                 showAccountDialog(accountRepository.getAllAccountNames(), onAccountSelected = { selectedAccount ->

@@ -35,4 +35,6 @@
     <string name="confirm">Confirm</string>
     <string name="input_a_number">Please input a number</string>
     <string name="entry_name">Transaction title</string>
+    <string name="entry_deleted">Entry deleted</string>
+    <string name="undo">UNDO</string>
 </resources>

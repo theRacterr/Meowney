@@ -34,4 +34,6 @@
     <string name="confirm">Potvrdit</string>
     <string name="input_a_number">Prosím vložte číslo</string>
     <string name="entry_name">Jméno transakce</string>
+    <string name="entry_deleted">Záznam smazán</string>
+    <string name="undo">ZPĚT</string>
 </resources>
