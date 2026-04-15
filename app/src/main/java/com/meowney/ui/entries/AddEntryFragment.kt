@@ -45,10 +45,6 @@ class AddEntryFragment : Fragment() {
         val categoryRepository = TransactionCategoryRepository(db.transactionCategoryDao())
         val accountRepository = AccountRepository(db.accountDao())
 
-        // setting the default account and category
-        viewModel.setSelectedAccount(1)
-        viewModel.setSelectedCategory(1)
-
         // updating GUI based on selected account and category
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.selectedAccount.collect { accountId ->

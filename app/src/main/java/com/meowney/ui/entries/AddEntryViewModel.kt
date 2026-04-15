@@ -15,7 +15,7 @@ class AddEntryViewModel : ViewModel() {
         _selectedAccount.value = accountId
     }
 
-    private val _selectedCategory = MutableStateFlow(0)
+    private val _selectedCategory = MutableStateFlow(1)
 
     val selectedCategory: StateFlow<Int> get() = _selectedCategory.asStateFlow()
 
