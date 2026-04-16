@@ -47,9 +47,6 @@ class MoreFragment : Fragment() {
         binding.rowAbout.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_more_to_navigation_about)
         }
-        binding.rowPrivacy.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_more_to_navigation_privacy)
-        }
         return view
     }
 

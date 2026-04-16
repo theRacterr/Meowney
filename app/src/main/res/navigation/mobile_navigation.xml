@@ -38,11 +38,6 @@
             app:destination="@id/navigation_theming"
             app:popUpTo="@id/navigation_more"
             app:popUpToInclusive="false" />
-        <action
-            android:id="@+id/action_navigation_more_to_navigation_privacy"
-            app:destination="@id/navigation_privacy"
-            app:popUpTo="@id/navigation_more"
-            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -63,9 +58,4 @@
         android:label="@string/title_add_entry"
         tools:layout="@layout/fragment_add_entry" />
 
-    <fragment
-        android:id="@+id/navigation_privacy"
-        android:name="com.meowney.ui.more.PrivacyFragment"
-        android:label="fragment_privacy"
-        tools:layout="@layout/fragment_privacy" />
 </navigation>

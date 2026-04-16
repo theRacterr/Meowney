@@ -20,10 +20,6 @@
             android:title="@string/title_app_colors"
             android:icon="@drawable/ic_palette_black_24dp"/>
         <item
-            android:id="@+id/navigation_privacy"
-            android:title="@string/title_privacy"
-            android:icon="@drawable/ic_eye_black_24dp"/>
-        <item
             android:id="@+id/navigation_about"
             android:title="@string/title_about"
             android:icon="@drawable/ic_about_black_24dp"/>
