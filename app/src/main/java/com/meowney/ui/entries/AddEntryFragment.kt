@@ -22,6 +22,7 @@ import com.meowney.data.repositories.GeneralTransactionRepository
 import com.meowney.data.repositories.TransactionCategoryRepository
 import com.meowney.databinding.FragmentAddEntryBinding
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 import kotlin.getValue
 
 
@@ -134,7 +135,7 @@ class AddEntryFragment : Fragment() {
                         title = title,
                         description = null,
                         amount = amount,
-                        date = System.currentTimeMillis().toString()
+                        date = LocalDate.now().toString()
 
                     )
                 )
