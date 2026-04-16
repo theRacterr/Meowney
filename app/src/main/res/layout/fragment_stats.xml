@@ -54,10 +54,39 @@
 
     </LinearLayout>
 
-    <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
-        android:id="@+id/balanceChart"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        app:chartStyle="@style/BalanceChart" />
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="?attr/selectableItemBackground">
+
+        <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
+            android:id="@+id/balanceChart"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_margin="6dp"
+            app:chartStyle="@style/BalanceChart" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="?attr/selectableItemBackground">
+
+        <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
+            android:id="@+id/categoryChart"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_margin="6dp"
+            app:chartStyle="@style/CategoryChart" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+
 
 </LinearLayout>

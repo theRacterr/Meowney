@@ -17,6 +17,7 @@ import com.meowney.data.repositories.GeneralTransactionRepository
 import com.meowney.data.repositories.TransactionCategoryRepository
 import com.meowney.databinding.FragmentStatsBinding
 import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
+import com.patrykandpatrick.vico.core.cartesian.data.columnSeries
 import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import kotlinx.coroutines.launch
 
@@ -28,6 +29,7 @@ class StatsFragment : Fragment() {
 
 
     val balanceModelProducer = CartesianChartModelProducer()
+    val categoryModelProducer = CartesianChartModelProducer()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +59,7 @@ class StatsFragment : Fragment() {
         }
 
         binding.balanceChart.modelProducer = balanceModelProducer
-
+        binding.categoryChart.modelProducer = categoryModelProducer
 
         reloadStats(viewModel, transactionRepository, categoryRepository, accountRepository)
         
@@ -88,6 +90,7 @@ class StatsFragment : Fragment() {
 
             var totalBalance: Double?
             var monthlySum: List<GeneralTransactionDao.MonthlySum>
+            var categorySum: List<GeneralTransactionDao.CategorySum>
 
             if (viewModel.selectedAccount.value == 0) {
                 // account switching
@@ -97,6 +100,9 @@ class StatsFragment : Fragment() {
                 // balance chart
                 monthlySum = transactionRepository.getMonthlySum()
 
+                // category chart
+                categorySum = transactionRepository.getCategorySums()
+
             } else {
                 // account switching
                 totalBalance = transactionRepository.getSumByAccountId(viewModel.selectedAccount.value)
@@ -104,6 +110,10 @@ class StatsFragment : Fragment() {
 
                 // balance chart
                 monthlySum = transactionRepository.getMonthlySumByAccount(viewModel.selectedAccount.value)
+
+                // category chart
+                categorySum = transactionRepository.getCategorySumsByAccount(viewModel.selectedAccount.value)
+
             }
 
             if (totalBalance == null) {
@@ -113,27 +123,43 @@ class StatsFragment : Fragment() {
             binding.accountBalance.text = totalBalance.toString()
 
             // charts
-
+            // balance chart
             // TODO: months on x axis
             if (monthlySum.isEmpty()) {
                 monthlySum = listOf(GeneralTransactionDao.MonthlySum("1970-01", 0.0))
             }
 
-            var values = listOf<Double>()
-            var dates = listOf<String>()
+            var balanceValues = listOf<Double>()
+            var balanceDates = listOf<String>()
             monthlySum.forEach {
-                values = values.plus(it.totalSum)
-                dates = dates.plus(it.month)
+                balanceValues = balanceValues.plus(it.totalSum)
+                balanceDates = balanceDates.plus(it.month)
             }
 
             balanceModelProducer.runTransaction {
                 lineSeries {
-                    series(values)
+                    series(balanceValues)
                 }
             }
 
+            // category chart
+            // TODO: categories on x axis
 
+            val categories = categoryRepository.getAllCategoryNames()
 
+            var categoryValues = listOf<Double>()
+            var categoryNames = listOf<String>()
+
+            categorySum.forEach {
+                categoryValues = categoryValues.plus(it.totalSum)
+                categoryNames = categoryNames.plus(it.categoryName)
+            }
+
+            categoryModelProducer.runTransaction {
+                columnSeries {
+                    series(categoryValues)
+                }
+            }
         }
 
         // TODO: add stats

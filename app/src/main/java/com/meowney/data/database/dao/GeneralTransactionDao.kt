@@ -46,6 +46,27 @@ interface GeneralTransactionDao {
     """)
     suspend fun getMonthlySumByAccount(accountId: Int): List<MonthlySum>
 
+    @Query("""
+        SELECT 
+            tc.name AS categoryName, 
+            SUM(gt.amount) AS totalSum
+        FROM TransactionCategory tc
+        JOIN GeneralTransaction gt ON tc.id = gt.category_id
+        GROUP BY tc.name
+    """)
+    suspend fun getCategorySums(): List<CategorySum>
+
+    @Query("""
+    SELECT 
+        tc.name AS categoryName,        SUM(gt.amount) AS totalSum
+    FROM TransactionCategory tc
+    JOIN GeneralTransaction gt ON tc.id = gt.category_id
+    WHERE gt.account_id = :accountId
+    GROUP BY tc.name
+""")
+    suspend fun getCategorySumsByAccount(accountId: Int): List<CategorySum>
+
+
     @Query("SELECT * FROM generaltransaction WHERE id = :id")
     suspend fun getById(id: Int): GeneralTransaction
 
@@ -57,6 +78,11 @@ interface GeneralTransactionDao {
 
     data class MonthlySum(
         val month: String,
+        val totalSum: Double
+    )
+
+    data class CategorySum(
+        val categoryName: String,
         val totalSum: Double
     )
 

@@ -5,4 +5,9 @@
         <item name="showBottomAxis">true</item>
         <item name="showStartAxis">true</item>
     </style>
+    <style name="CategoryChart">
+        <item name="layers">column</item>
+        <item name="showBottomAxis">true</item>
+        <item name="showStartAxis">true</item>
+    </style>
 </resources>
