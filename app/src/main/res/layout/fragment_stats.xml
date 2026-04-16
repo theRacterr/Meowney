@@ -54,5 +54,10 @@
 
     </LinearLayout>
 
+    <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
+        android:id="@+id/balanceChart"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        app:chartStyle="@style/BalanceChart" />
 
 </LinearLayout>

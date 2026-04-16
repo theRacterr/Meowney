@@ -25,6 +25,14 @@ class GeneralTransactionRepository(private val dao: GeneralTransactionDao) {
         return dao.getSumOfAll()
     }
 
+    suspend fun getMonthlySum(): List<GeneralTransactionDao.MonthlySum> {
+        return dao.getMonthlySum()
+    }
+
+    suspend fun getMonthlySumByAccount(accountId: Int): List<GeneralTransactionDao.MonthlySum> {
+        return dao.getMonthlySumByAccount(accountId)
+    }
+
     suspend fun getTransactionById(id: Int): GeneralTransaction {
         return dao.getById(id)
     }

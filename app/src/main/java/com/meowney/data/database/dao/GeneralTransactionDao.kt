@@ -25,6 +25,27 @@ interface GeneralTransactionDao {
     @Query("SELECT SUM(amount) FROM generaltransaction")
     suspend fun getSumOfAll(): Double?
 
+    @Query("""
+        SELECT 
+            strftime('%Y-%m', date) AS month, 
+            SUM(amount) AS totalSum
+        FROM GeneralTransaction
+        GROUP BY month
+        ORDER BY month ASC;
+    """)
+    suspend fun getMonthlySum(): List<MonthlySum>
+
+    @Query("""
+        SELECT 
+            strftime('%Y-%m', date) AS month, 
+            SUM(amount) AS totalSum
+        FROM GeneralTransaction
+        WHERE account_id = :accountId
+        GROUP BY month
+        ORDER BY month ASC;
+    """)
+    suspend fun getMonthlySumByAccount(accountId: Int): List<MonthlySum>
+
     @Query("SELECT * FROM generaltransaction WHERE id = :id")
     suspend fun getById(id: Int): GeneralTransaction
 
@@ -33,4 +54,10 @@ interface GeneralTransactionDao {
 
     @Query("SELECT SUM(amount) FROM GeneralTransaction WHERE account_id = :accountId")
     suspend fun getSumByAccountId(accountId: Int): Double?
+
+    data class MonthlySum(
+        val month: String,
+        val totalSum: Double
+    )
+
 }

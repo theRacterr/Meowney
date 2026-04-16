@@ -11,10 +11,13 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.meowney.MainActivity
 import com.meowney.R
 import com.meowney.data.database.DatabaseProvider
+import com.meowney.data.database.dao.GeneralTransactionDao
 import com.meowney.data.repositories.AccountRepository
 import com.meowney.data.repositories.GeneralTransactionRepository
 import com.meowney.data.repositories.TransactionCategoryRepository
 import com.meowney.databinding.FragmentStatsBinding
+import com.patrykandpatrick.vico.core.cartesian.data.CartesianChartModelProducer
+import com.patrykandpatrick.vico.core.cartesian.data.lineSeries
 import kotlinx.coroutines.launch
 
 
@@ -22,6 +25,9 @@ class StatsFragment : Fragment() {
 
     private var _binding: FragmentStatsBinding? = null
     private val binding get() = _binding!!
+
+
+    val balanceModelProducer = CartesianChartModelProducer()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +55,8 @@ class StatsFragment : Fragment() {
                 })
             }
         }
+
+        binding.balanceChart.modelProducer = balanceModelProducer
 
 
         reloadStats(viewModel, transactionRepository, categoryRepository, accountRepository)
@@ -79,13 +87,23 @@ class StatsFragment : Fragment() {
         lifecycleScope.launch {
 
             var totalBalance: Double?
+            var monthlySum: List<GeneralTransactionDao.MonthlySum>
 
             if (viewModel.selectedAccount.value == 0) {
+                // account switching
                 totalBalance = transactionRepository.getSumOfAll()
                 binding.accountName.text = getString(R.string.all_accounts)
+
+                // balance chart
+                monthlySum = transactionRepository.getMonthlySum()
+
             } else {
+                // account switching
                 totalBalance = transactionRepository.getSumByAccountId(viewModel.selectedAccount.value)
                 binding.accountName.text = accountRepository.getNameById(viewModel.selectedAccount.value)
+
+                // balance chart
+                monthlySum = transactionRepository.getMonthlySumByAccount(viewModel.selectedAccount.value)
             }
 
             if (totalBalance == null) {
@@ -93,6 +111,29 @@ class StatsFragment : Fragment() {
             }
 
             binding.accountBalance.text = totalBalance.toString()
+
+            // charts
+
+            // TODO: months on x axis
+            if (monthlySum.isEmpty()) {
+                monthlySum = listOf(GeneralTransactionDao.MonthlySum("1970-01", 0.0))
+            }
+
+            var values = listOf<Double>()
+            var dates = listOf<String>()
+            monthlySum.forEach {
+                values = values.plus(it.totalSum)
+                dates = dates.plus(it.month)
+            }
+
+            balanceModelProducer.runTransaction {
+                lineSeries {
+                    series(values)
+                }
+            }
+
+
+
         }
 
         // TODO: add stats
