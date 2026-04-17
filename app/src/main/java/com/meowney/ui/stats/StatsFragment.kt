@@ -131,14 +131,18 @@ class StatsFragment : Fragment() {
 
             var balanceValues = listOf<Double>()
             var balanceDates = listOf<String>()
+            var balanceFakeDates = listOf<Double>()
             monthlySum.forEach {
                 balanceValues = balanceValues.plus(it.totalSum)
                 balanceDates = balanceDates.plus(it.month)
             }
+            balanceDates.forEach {
+                balanceFakeDates = balanceFakeDates.plus(it.replace("-", ".").toDouble())
+            }
 
             balanceModelProducer.runTransaction {
                 lineSeries {
-                    series(balanceValues)
+                    series(balanceFakeDates, balanceValues)
                 }
             }
 
