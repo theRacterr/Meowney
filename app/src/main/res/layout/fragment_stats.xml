@@ -54,39 +54,62 @@
 
     </LinearLayout>
 
-    <com.google.android.material.card.MaterialCardView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="?attr/selectableItemBackground">
+        android:layout_height="1dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="?attr/toolbarElementColor" />
 
-        <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
-            android:id="@+id/balanceChart"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_margin="6dp"
-            app:chartStyle="@style/BalanceChart" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="?attr/selectableItemBackground">
+        android:layout_height="match_parent">
 
-        <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
-            android:id="@+id/categoryChart"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_margin="6dp"
-            app:chartStyle="@style/CategoryChart" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="?attr/selectableItemBackground">
 
+                <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
+                    android:id="@+id/balanceChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_margin="6dp"
+                    app:chartStyle="@style/BalanceChart" />
 
+            </com.google.android.material.card.MaterialCardView>
 
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="?attr/selectableItemBackground">
 
+                <com.patrykandpatrick.vico.views.cartesian.CartesianChartView
+                    android:id="@+id/categoryChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_margin="6dp"
+                    app:chartStyle="@style/CategoryChart" />
+
+                <TextView
+                    android:id="@+id/categoryLegend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="230dp"
+                    android:layout_marginBottom="16dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

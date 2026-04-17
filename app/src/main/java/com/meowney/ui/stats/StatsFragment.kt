@@ -124,7 +124,6 @@ class StatsFragment : Fragment() {
 
             // charts
             // balance chart
-            // TODO: months on x axis
             if (monthlySum.isEmpty()) {
                 monthlySum = listOf(GeneralTransactionDao.MonthlySum("1970-01", 0.0))
             }
@@ -147,17 +146,19 @@ class StatsFragment : Fragment() {
             }
 
             // category chart
-            // TODO: categories on x axis
-
-            val categories = categoryRepository.getAllCategoryNames()
-
             var categoryValues = listOf<Double>()
-            var categoryNames = listOf<String>()
+            var categoryLegend = ""
+            var helperIndex = 0
 
             categorySum.forEach {
                 categoryValues = categoryValues.plus(it.totalSum)
-                categoryNames = categoryNames.plus(it.categoryName)
+
+                categoryLegend += helperIndex.toString() + " — " + it.categoryName + " — " + it.totalSum.toString() + "\n"
+                helperIndex++
+
             }
+
+            binding.categoryLegend.text = categoryLegend
 
             categoryModelProducer.runTransaction {
                 columnSeries {
