@@ -10,7 +10,7 @@
     <string name="dialog_cancel">Zrušit</string>
     <string name="dialog_confirm">Potvrdit</string>
     <string-array name="color_mode_options">
-        <item>Světlí</item>
+        <item>Světlý</item>
         <item>Tmavý</item>
         <item>Podle systému</item>
     </string-array>
@@ -37,4 +37,5 @@
     <string name="entry_deleted">Záznam smazán</string>
     <string name="undo">ZPĚT</string>
     <string name="input_a_title">Prosím vložte název</string>
+    <string name="license_button">Klikněte pro zobrazení licencí</string>
 </resources>

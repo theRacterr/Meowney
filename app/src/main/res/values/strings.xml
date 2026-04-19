@@ -38,4 +38,5 @@
     <string name="entry_deleted">Entry deleted</string>
     <string name="undo">UNDO</string>
     <string name="input_a_title">Please enter a title</string>
+    <string name="license_button">Click to show licenses</string>
 </resources>
