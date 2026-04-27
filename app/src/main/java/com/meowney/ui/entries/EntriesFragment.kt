@@ -135,10 +135,12 @@ class EntriesFragment : Fragment() {
                 transactions = transactionRepository.getAllTransactions()
                 totalBalance = transactionRepository.getSumOfAll()
                 binding.accountName.text = getString(R.string.all_accounts)
+                binding.accountCurrency.text = "EUR"
             } else {
                 transactions = transactionRepository.getAllTransactionsByAccountId(viewModel.selectedAccount.value)
                 totalBalance = transactionRepository.getSumByAccountId(viewModel.selectedAccount.value)
                 binding.accountName.text = accountRepository.getNameById(viewModel.selectedAccount.value)
+                binding.accountCurrency.text = accountRepository.getCurrencyById(viewModel.selectedAccount.value)
             }
 
             if (totalBalance == null) {

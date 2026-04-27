@@ -46,11 +46,22 @@
             android:id="@+id/accountBalance"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="16dp"
             android:textColor="?attr/toolbarElementColor"
             android:textAppearance="?attr/textAppearanceTitleLarge"
             android:gravity="center_vertical" />
 
+        <TextView
+            android:id="@+id/accountCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:paddingBottom="14dp"
+            android:textSize="16sp"
+            android:textColor="?attr/toolbarElementColor"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:gravity="bottom" />
 
     </LinearLayout>
 

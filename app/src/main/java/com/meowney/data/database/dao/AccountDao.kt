@@ -35,6 +35,10 @@ interface AccountDao {
     @Query("SELECT name FROM account WHERE id = :id")
     suspend fun getNameById(id: Int): String
 
+    @Query("SELECT currency FROM account WHERE id = :id")
+    suspend fun getCurrencyById(id: Int): String
+
+
     @Transaction
     @Query("SELECT * FROM account WHERE id = :id")
     suspend fun getAccountWithTransactions(id: Int): AccountWithTransactions

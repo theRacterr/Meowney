@@ -96,6 +96,7 @@ class StatsFragment : Fragment() {
                 // account switching
                 totalBalance = transactionRepository.getSumOfAll()
                 binding.accountName.text = getString(R.string.all_accounts)
+                binding.accountCurrency.text = "EUR"
 
                 // balance chart
                 monthlySum = transactionRepository.getMonthlySum()
@@ -107,6 +108,7 @@ class StatsFragment : Fragment() {
                 // account switching
                 totalBalance = transactionRepository.getSumByAccountId(viewModel.selectedAccount.value)
                 binding.accountName.text = accountRepository.getNameById(viewModel.selectedAccount.value)
+                binding.accountCurrency.text = accountRepository.getCurrencyById(viewModel.selectedAccount.value)
 
                 // balance chart
                 monthlySum = transactionRepository.getMonthlySumByAccount(viewModel.selectedAccount.value)
